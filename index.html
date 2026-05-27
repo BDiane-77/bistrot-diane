@@ -3,38 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Le Bistrot de Diane — Menu</title>
+<title>Le bistrot de Diane — Menu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@300;400&display=swap');
+:root{--bg:#FFF8EE;--bg2:#F0E5D0;--text:#2C1810;--t2:#7A5A40;--hd:#1A0808;--ac:#8B1A1A;--br:#D4B896;--ft:#9A7050;--fd:'Libre Baskerville',serif;--fb:'Libre Franklin',sans-serif}
+h1{font-size:2.6em;letter-spacing:3px}.st{font-size:1.3em;letter-spacing:3px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#FAF8F3;color:#2C2C2C;font-family:'Lato',sans-serif;font-weight:300;min-height:100vh}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;min-height:100vh}
 .pg{max-width:700px;margin:0 auto;padding:20px 24px}
 header{text-align:center;padding:60px 0 50px}
-.orn{display:block;color:#C9A96E;letter-spacing:10px;margin-bottom:16px;font-size:.95em}
-h1{font-family:'Playfair Display',serif;font-size:2.8em;font-weight:700;color:#1C2B4A;letter-spacing:4px;text-transform:uppercase;line-height:1.2}
-.tg{font-family:'Playfair Display',serif;font-style:italic;color:#C9A96E;font-size:.95em;margin-top:12px;letter-spacing:2px}
+.orn{display:block;color:var(--ac);letter-spacing:10px;margin-bottom:16px;font-size:.95em}
+h1{font-family:var(--fd);font-size:2.8em;font-weight:700;color:var(--hd);letter-spacing:4px;text-transform:uppercase;line-height:1.2}
+.tg{font-family:var(--fd);font-style:italic;color:var(--ac);font-size:.95em;margin-top:12px;letter-spacing:2px}
 .hd{display:flex;align-items:center;margin:30px 0 0}
-.hd::before,.hd::after{content:'';flex:1;height:1px;background:#C9A96E;opacity:.45}
-.hd span{color:#C9A96E;margin:0 14px;font-size:.9em}
+.hd::before,.hd::after{content:'';flex:1;height:1px;background:var(--ac);opacity:.45}
+.hd span{color:var(--ac);margin:0 14px;font-size:.9em}
 .ms{margin:38px 0}
 .sh{position:relative;text-align:center;margin-bottom:26px}
-.sl{position:absolute;top:50%;left:0;right:0;height:1px;background:#E0D4C0}
-.st{font-family:'Playfair Display',serif;font-size:1.45em;font-weight:600;color:#1C2B4A;letter-spacing:4px;text-transform:uppercase;display:inline-block;background:#FAF8F3;padding:0 18px;position:relative;z-index:1}
+.sl{position:absolute;top:50%;left:0;right:0;height:1px;background:var(--br)}
+.st{font-family:var(--fd);font-size:1.45em;font-weight:600;color:var(--hd);letter-spacing:4px;text-transform:uppercase;display:inline-block;background:var(--bg);padding:0 18px;position:relative;z-index:1}
 .mw{margin:14px 0}
 .mi{display:flex;align-items:baseline;gap:6px}
-.in{font-family:'Playfair Display',serif;font-size:.97em;color:#2C2C2C;flex-shrink:0}
-.dt{flex:1;border-bottom:1px dotted #C9A96E;opacity:.4;min-width:20px}
-.ip{font-weight:700;color:#1C2B4A;font-size:.92em;white-space:nowrap;flex-shrink:0}
-.ic{font-style:italic;color:#8A7B6A;font-size:.81em;margin-top:5px;padding-left:2px;line-height:1.45}
-.fc{background:#F5F0E5;border:1px solid #E0D4C0;border-left:3px solid #C9A96E;padding:16px 20px;margin:12px 0;border-radius:3px}
+.in{font-family:var(--fd);font-size:.97em;color:var(--text);flex-shrink:0}
+.dt{flex:1;border-bottom:1px dotted var(--ac);opacity:.4;min-width:20px}
+.ip{font-weight:700;color:var(--hd);font-size:.92em;white-space:nowrap;flex-shrink:0}
+.ic{font-style:italic;color:var(--t2);font-size:.81em;margin-top:5px;padding-left:2px;line-height:1.45}
+.fc{background:var(--bg2);border:1px solid var(--br);border-left:3px solid var(--ac);padding:16px 20px;margin:12px 0;border-radius:3px}
 .fh{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.fn{font-family:'Playfair Display',serif;font-size:.97em;font-weight:600;color:#1C2B4A}
-.fp{font-weight:700;color:#1C2B4A;white-space:nowrap;font-size:.93em}
-.fd{font-style:italic;color:#8A7B6A;font-size:.84em;margin-top:5px}
-.fco{font-style:italic;color:#8A7B6A;font-size:.81em;margin-top:6px}
-footer{text-align:center;padding:38px 0 28px;border-top:1px solid #E0D4C0;color:#A8967E;font-size:.77em;letter-spacing:2px;margin-top:18px}
-.copy{font-size:.72em;color:#C0B4A0;margin-top:10px;line-height:1.7;letter-spacing:.4px}
+.fn{font-family:var(--fd);font-size:.97em;font-weight:600;color:var(--hd)}
+.fp{font-weight:700;color:var(--hd);white-space:nowrap;font-size:.93em}
+.fd{font-style:italic;color:var(--t2);font-size:.84em;margin-top:5px}
+.fco{font-style:italic;color:var(--t2);font-size:.81em;margin-top:6px}
+footer{text-align:center;padding:38px 0 28px;border-top:1px solid var(--br);color:var(--ft);font-size:.77em;letter-spacing:2px;margin-top:18px}
+.copy{font-size:.72em;color:var(--ft);opacity:.7;margin-top:10px;line-height:1.7;letter-spacing:.4px}
 @media print{body{background:#fff}.pg{max-width:100%;padding:10px}header{padding:20px 0}}
 @media(max-width:500px){h1{font-size:2em}.st{font-size:1.2em;letter-spacing:2px}.pg{padding:12px 16px}}
 </style>
@@ -42,7 +45,7 @@ footer{text-align:center;padding:38px 0 28px;border-top:1px solid #E0D4C0;color:
 <body><div class="pg">
 <header>
 <span class="orn">✦ ✦ ✦</span>
-<h1>Le Bistrot<br>de Diane</h1>
+<h1>Le bistrot<br>de Diane</h1>
 <p class="tg">Menu du moment</p>
 <div class="hd"><span>✦</span></div>
 </header>
@@ -55,5 +58,5 @@ footer{text-align:center;padding:38px 0 28px;border-top:1px solid #E0D4C0;color:
 <section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">plat du jour</h2></div><div class="mw"><div class="mi"><span class="in">concassé de tomate a la peruvienne</span><span class="dt"></span><span class="ip">16.00 €</span></div></div></section>
 <section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">boissons chaudes</h2></div><div class="mw"><div class="mi"><span class="in">café</span><span class="dt"></span><span class="ip">1.50 €</span></div></div>
 <div class="mw"><div class="mi"><span class="in">thé</span><span class="dt"></span><span class="ip">2.50 €</span></div></div></section>
-<footer><p>Mis à jour le 27 mai 2026 à 21h14</p><p class="copy">© N.Y 2026 — DematCard. Tous droits réservés.<br>Toute reproduction, copie ou diffusion, même partielle, est interdite sans autorisation écrite.</p></footer>
+<footer><p>Mis à jour le 27 mai 2026 à 21h56</p><p class="copy">© N.Y 2026 — DematCard. Tous droits réservés.<br>Toute reproduction, copie ou diffusion, même partielle, est interdite sans autorisation écrite.</p></footer>
 </div></body></html>
