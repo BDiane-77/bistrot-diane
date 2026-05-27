@@ -3,60 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Le Bistrot de Diane — Menu</title>
+<title>Bistro de Diane — Menu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#FAF8F3;color:#2C2C2C;font-family:'Lato',sans-serif;font-weight:300;min-height:100vh}
 .pg{max-width:700px;margin:0 auto;padding:20px 24px}
-/* ── En-tête ── */
 header{text-align:center;padding:60px 0 50px}
 .orn{display:block;color:#C9A96E;letter-spacing:10px;margin-bottom:16px;font-size:.95em}
-h1{font-family:'Playfair Display',serif;font-size:2.9em;font-weight:700;color:#1C2B4A;letter-spacing:5px;text-transform:uppercase;line-height:1.15}
+h1{font-family:'Playfair Display',serif;font-size:2.8em;font-weight:700;color:#1C2B4A;letter-spacing:4px;text-transform:uppercase;line-height:1.2}
 .tg{font-family:'Playfair Display',serif;font-style:italic;color:#C9A96E;font-size:.95em;margin-top:12px;letter-spacing:2px}
 .hd{display:flex;align-items:center;margin:30px 0 0}
 .hd::before,.hd::after{content:'';flex:1;height:1px;background:#C9A96E;opacity:.45}
 .hd span{color:#C9A96E;margin:0 14px;font-size:.9em}
-/* ── Sections ── */
 .ms{margin:38px 0}
 .sh{position:relative;text-align:center;margin-bottom:26px}
 .sl{position:absolute;top:50%;left:0;right:0;height:1px;background:#E0D4C0}
 .st{font-family:'Playfair Display',serif;font-size:1.45em;font-weight:600;color:#1C2B4A;letter-spacing:4px;text-transform:uppercase;display:inline-block;background:#FAF8F3;padding:0 18px;position:relative;z-index:1}
-/* ── Items ── */
 .mw{margin:14px 0}
 .mi{display:flex;align-items:baseline;gap:6px}
 .in{font-family:'Playfair Display',serif;font-size:.97em;color:#2C2C2C;flex-shrink:0}
 .dt{flex:1;border-bottom:1px dotted #C9A96E;opacity:.4;min-width:20px}
 .ip{font-weight:700;color:#1C2B4A;font-size:.92em;white-space:nowrap;flex-shrink:0}
 .ic{font-style:italic;color:#8A7B6A;font-size:.81em;margin-top:5px;padding-left:2px;line-height:1.45}
-/* ── Formules ── */
 .fc{background:#F5F0E5;border:1px solid #E0D4C0;border-left:3px solid #C9A96E;padding:16px 20px;margin:12px 0;border-radius:3px}
 .fh{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .fn{font-family:'Playfair Display',serif;font-size:.97em;font-weight:600;color:#1C2B4A}
 .fp{font-weight:700;color:#1C2B4A;white-space:nowrap;font-size:.93em}
 .fd{font-style:italic;color:#8A7B6A;font-size:.84em;margin-top:5px}
 .fco{font-style:italic;color:#8A7B6A;font-size:.81em;margin-top:6px}
-/* ── Pied de page ── */
 footer{text-align:center;padding:38px 0 28px;border-top:1px solid #E0D4C0;color:#A8967E;font-size:.77em;letter-spacing:2px;margin-top:18px}
-/* ── Impression ── */
 @media print{body{background:#fff}.pg{max-width:100%;padding:10px}header{padding:20px 0}}
-/* ── Mobile ── */
 @media(max-width:500px){h1{font-size:2em}.st{font-size:1.2em;letter-spacing:2px}.pg{padding:12px 16px}}
 </style>
 </head>
 <body><div class="pg">
 <header>
 <span class="orn">✦ ✦ ✦</span>
-<h1>Le Bistrot<br>de Diane</h1>
+<h1>Bistro<br>de Diane</h1>
 <p class="tg">Menu du moment</p>
 <div class="hd"><span>✦</span></div>
 </header>
-<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Entrées</h2></div><div class="mw"><div class="mi"><span class="in">salade cesar</span><span class="dt"></span><span class="ip">10.00 €</span></div></div></section>
-<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Plats</h2></div><div class="mw"><div class="mi"><span class="in">test</span><span class="dt"></span><span class="ip">10.00 €</span></div></div></section>
-<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Desserts</h2></div><div class="mw"><div class="mi"><span class="in">testicule</span><span class="dt"></span><span class="ip">16.00 €</span></div></div></section>
-<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Formules du Midi</h2></div><div class="fc"><div class="fh"><span class="fn">midi</span><span class="fp">16.00 €</span></div><p class="fd">Entrée + Plat</p><p class="fco">tomate mozza + pates au pesto</p></div>
-<div class="fc"><div class="fh"><span class="fn">midi</span><span class="fp">16.00 €</span></div><p class="fd">Plat + Dessert</p><p class="fco">pates au pesto + glace 2 boules</p></div>
-<div class="fc"><div class="fh"><span class="fn">midi</span><span class="fp">19.00 €</span></div><p class="fd">Entrée + Plat + Dessert</p><p class="fco">tomates mozza + pates au pesto + glace 2 boules</p></div></section>
-<footer><p>Mis à jour le 26 mai 2026</p></footer>
+<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Formules du Midi</h2></div><div class="fc"><div class="fh"><span class="fn">midi</span><span class="fp">16.00 €</span></div><p class="fd">Entrée + Plat</p><p class="fco">tomate mozza + pates au pesto</p></div>
+<div class="fc"><div class="fh"><span class="fn">midi</span><span class="fp">16.00 €</span></div><p class="fd">Plat + Dessert</p><p class="fco">pates au pesto + glace 2 boules</p></div>
+<div class="fc"><div class="fh"><span class="fn">midi</span><span class="fp">19.00 €</span></div><p class="fd">Entrée + Plat + Dessert</p><p class="fco">tomates mozza + pates au pesto + glace 2 boules</p></div></section>
+<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Entrées</h2></div><div class="mw"><div class="mi"><span class="in">salade cesar</span><span class="dt"></span><span class="ip">10.00 €</span></div></div></section>
+<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Plats</h2></div><div class="mw"><div class="mi"><span class="in">aprahé facon mamlakate</span><span class="dt"></span><span class="ip">15.00 €</span></div></div></section>
+<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Desserts</h2></div><div class="mw"><div class="mi"><span class="in">tchayé guepta</span><span class="dt"></span><span class="ip">12.00 €</span></div></div></section>
+<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">plat du jour</h2></div><div class="mw"><div class="mi"><span class="in">concassé de tomate a la peruvienne</span><span class="dt"></span><span class="ip">16.00 €</span></div></div></section>
+<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">boissons chaudes</h2></div><div class="mw"><div class="mi"><span class="in">café</span><span class="dt"></span><span class="ip">1.50 €</span></div></div>
+<div class="mw"><div class="mi"><span class="in">thé</span><span class="dt"></span><span class="ip">2.50 €</span></div></div></section>
+<footer><p>Mis à jour le 27 mai 2026</p></footer>
 </div></body></html>
