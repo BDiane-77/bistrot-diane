@@ -6,14 +6,16 @@
 <meta name="theme-color" content="#1B2B45">
 <title>Le bistrot de Diane — Menu</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;1,400&display=swap');
-:root{--bg:#C8A878;--bg2:#B89860;--text:#2C1A0A;--t2:#5A3A20;--hd:#1A0A00;--ac:#6B3D2A;--br:#9A7848;--ft:#6A4A28;--fd:'Special Elite',cursive;--fb:'Courier Prime',monospace}
-body{font-weight:400}
-h1{font-size:2.4em;letter-spacing:4px}
-.tg{font-family:'Courier Prime',monospace;font-style:italic;letter-spacing:1px;font-size:.9em}
-.st{letter-spacing:3px;font-size:1.3em;background:#C8A878}
-.in,.fn{font-family:'Courier Prime',monospace}
-.ip,.fp{font-family:'Special Elite',cursive}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,700;0,900;1,200&display=swap');
+:root{--bg:#FFFFFF;--bg2:#F4F4F4;--text:#1A1A1A;--t2:#666666;--hd:#111111;--ac:#CC1A1A;--br:#E0E0E0;--ft:#999999;--fd:'Montserrat',sans-serif;--fb:'Montserrat',sans-serif}
+body{font-weight:200}
+h1{font-weight:900;letter-spacing:6px;font-size:2.9em}
+.tg{font-family:'Montserrat',sans-serif;font-style:normal;font-weight:200;letter-spacing:8px;font-size:.78em;text-transform:uppercase}
+.orn{letter-spacing:18px;font-size:.8em}
+.st{font-weight:700;letter-spacing:7px;font-size:1.15em;background:#fff}
+.in{font-family:'Montserrat',sans-serif;font-weight:200}
+.fn{font-family:'Montserrat',sans-serif;font-weight:700}
+.hd::before,.hd::after{opacity:.2}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;min-height:100vh;overflow-x:hidden}
 
@@ -313,7 +315,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 29 mai 2026 à 19h21';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 29 mai 2026 à 19h24';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
