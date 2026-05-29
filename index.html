@@ -2,66 +2,469 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Le Bistrot de Diane — Menu</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#1B2B45">
+<title>Le bistrot de Diane — Menu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;1,400&display=swap');
-:root{--bg:#C8A878;--bg2:#B89860;--text:#2C1A0A;--t2:#5A3A20;--hd:#1A0A00;--ac:#6B3D2A;--br:#9A7848;--ft:#6A4A28;--fd:'Special Elite',cursive;--fb:'Courier Prime',monospace}
-body{font-weight:400}
-h1{font-size:2.4em;letter-spacing:4px}
-.tg{font-family:'Courier Prime',monospace;font-style:italic;letter-spacing:1px;font-size:.9em}
-.st{letter-spacing:3px;font-size:1.3em;background:#C8A878}
-.in,.fn{font-family:'Courier Prime',monospace}
-.ip,.fp{font-family:'Special Elite',cursive}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;min-height:100vh}
-.pg{max-width:700px;margin:0 auto;padding:20px 24px}
-header{text-align:center;padding:60px 0 50px}
-.orn{display:block;color:var(--ac);letter-spacing:10px;margin-bottom:16px;font-size:.95em}
-h1{font-family:var(--fd);font-size:2.8em;font-weight:700;color:var(--hd);letter-spacing:4px;text-transform:uppercase;line-height:1.2}
-.tg{font-family:var(--fd);font-style:italic;color:var(--ac);font-size:.95em;margin-top:12px;letter-spacing:2px}
-.hd{display:flex;align-items:center;margin:30px 0 0}
-.hd::before,.hd::after{content:'';flex:1;height:1px;background:var(--ac);opacity:.45}
-.hd span{color:var(--ac);margin:0 14px;font-size:.9em}
-.ms{margin:38px 0}
-.sh{position:relative;text-align:center;margin-bottom:26px}
-.sl{position:absolute;top:50%;left:0;right:0;height:1px;background:var(--br)}
-.st{font-family:var(--fd);font-size:1.45em;font-weight:600;color:var(--hd);letter-spacing:4px;text-transform:uppercase;display:inline-block;background:var(--bg);padding:0 18px;position:relative;z-index:1}
-.mw{margin:14px 0}
-.mi{display:flex;align-items:baseline;gap:6px}
-.in{font-family:var(--fd);font-size:.97em;color:var(--text);flex-shrink:0}
-.dt{flex:1;border-bottom:1px dotted var(--ac);opacity:.4;min-width:20px}
-.ip{font-weight:700;color:var(--hd);font-size:.92em;white-space:nowrap;flex-shrink:0}
-.ic{font-style:italic;color:var(--t2);font-size:.81em;margin-top:5px;padding-left:2px;line-height:1.45}
-.fc{background:var(--bg2);border:1px solid var(--br);border-left:3px solid var(--ac);padding:16px 20px;margin:12px 0;border-radius:3px}
-.fh{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.fn{font-family:var(--fd);font-size:.97em;font-weight:600;color:var(--hd)}
-.fp{font-weight:700;color:var(--hd);white-space:nowrap;font-size:.93em}
-.fd{font-style:italic;color:var(--t2);font-size:.84em;margin-top:5px}
-.fco{font-style:italic;color:var(--t2);font-size:.81em;margin-top:6px}
-footer{text-align:center;padding:38px 0 28px;border-top:1px solid var(--br);color:var(--ft);font-size:.77em;letter-spacing:2px;margin-top:18px}
-.copy{font-size:.72em;color:var(--ft);opacity:.7;margin-top:10px;line-height:1.7;letter-spacing:.4px}
-@media print{body{background:#fff}.pg{max-width:100%;padding:10px}header{padding:20px 0}}
-@media(max-width:500px){h1{font-size:2em}.st{font-size:1.2em;letter-spacing:2px}.pg{padding:12px 16px}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --navy:#1B2B45;--gold:#C9A96E;--gold2:#9B7A2E;
+  --bg:#FAF8F3;--bg2:#F2EDE3;--card:#fff;
+  --txt:#1C1C2A;--txt2:#6A6A7A;--txt3:#9A8B77;
+  --bord:#DDD5C6;--grn:#2A7A52;--red:#B83232;
+  --ff-head:'Playfair Display',serif;--ff-body:'Inter',sans-serif;
+}
+body{background:var(--bg);color:var(--txt);font-family:var(--ff-body);font-weight:300;min-height:100vh;overflow-x:hidden}
+
+/* ── LANG BAR ── */
+#lang-bar{background:var(--navy);display:flex;justify-content:flex-end;align-items:center;padding:8px 16px;gap:4px;position:sticky;top:0;z-index:100}
+.lang-btn{color:#8FA6C8;font-size:.75em;font-weight:500;letter-spacing:1px;padding:4px 10px;border-radius:20px;border:none;background:none;cursor:pointer;transition:all .2s}
+.lang-btn.active{color:#fff;background:rgba(255,255,255,.15)}
+.lang-btn:hover{color:#fff}
+
+/* ── HEADER ── */
+header{text-align:center;padding:36px 20px 28px;background:var(--bg)}
+.orn{color:var(--gold);letter-spacing:8px;font-size:.85em;display:block;margin-bottom:12px}
+h1{font-family:var(--ff-head);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:var(--navy);letter-spacing:3px;text-transform:uppercase;line-height:1.2}
+.tagline{font-family:var(--ff-head);font-style:italic;color:var(--gold);font-size:.9em;margin-top:8px;letter-spacing:1px}
+.schedule-badge{display:inline-block;margin-top:12px;padding:4px 14px;border-radius:20px;font-size:.72em;font-weight:500;letter-spacing:1px;text-transform:uppercase}
+.schedule-badge.midi{background:#FEF3E2;color:#B45309;border:1px solid #F59E0B}
+.schedule-badge.soir{background:#EDE9FE;color:#5B21B6;border:1px solid #8B5CF6}
+
+/* ── FILTER BAR ── */
+#filter-bar{padding:10px 12px;background:var(--card);border-bottom:1px solid var(--bord);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+#filter-bar::-webkit-scrollbar{display:none}
+.filter-chip{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;border:1.5px solid var(--bord);background:var(--card);color:var(--txt2);font-size:.78em;font-weight:500;cursor:pointer;transition:all .2s;margin-right:6px;white-space:nowrap}
+.filter-chip.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.filter-chip .chip-icon{font-size:1em}
+#filter-clear{display:inline-flex;align-items:center;padding:6px 10px;border-radius:20px;border:1.5px solid #ECC;background:#FFF5F5;color:var(--red);font-size:.75em;font-weight:500;cursor:pointer;transition:all .2s;display:none}
+
+/* ── TAB NAV ── */
+#tab-nav{background:var(--card);border-bottom:2px solid var(--bord);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;position:sticky;top:41px;z-index:90}
+#tab-nav::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;padding:12px 20px;border:none;background:none;color:var(--txt2);font-family:var(--ff-head);font-size:.88em;font-weight:600;letter-spacing:.5px;cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:all .2s;white-space:nowrap}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--gold)}
+
+/* ── SECTIONS ── */
+.cat-section{display:none;padding:0 0 32px}
+.cat-section.active{display:block}
+.sec-title{font-family:var(--ff-head);font-size:1.3em;font-weight:600;color:var(--navy);padding:20px 16px 10px;letter-spacing:1px}
+.empty-msg{text-align:center;color:var(--txt3);font-style:italic;padding:32px 16px;font-size:.9em}
+
+/* ── DISH CARD ── */
+.dish-card{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--bord);background:var(--card);cursor:pointer;transition:background .15s;align-items:flex-start}
+.dish-card:hover,.dish-card:active{background:var(--bg2)}
+.dish-card.hidden{display:none!important}
+.dish-card.dimmed{opacity:.35}
+.dish-photo{width:80px;height:80px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--bg2)}
+.dish-main{flex:1;min-width:0}
+.dish-name{font-family:var(--ff-head);font-size:1em;color:var(--navy);font-weight:600;line-height:1.3;margin-bottom:3px}
+.dish-desc{font-size:.8em;color:var(--txt3);font-style:italic;line-height:1.4;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.badge-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.badge{font-size:.68em;padding:2px 7px;border-radius:10px;font-weight:500;white-space:nowrap}
+.badge.allergen{background:#FEF2F2;color:#991B1B;border:1px solid #FECACA}
+.badge.diet{background:#F0FDF4;color:#166534;border:1px solid #BBF7D0}
+.dish-right{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0;gap:6px}
+.dish-price{font-family:var(--ff-head);font-weight:700;color:var(--navy);font-size:1em;white-space:nowrap}
+.dish-arrow{color:var(--gold);font-size:1.1em;opacity:.6}
+
+/* ── FORMULA CARD ── */
+.formula-card{padding:14px 16px;border-bottom:1px solid var(--bord);border-left:3px solid var(--gold);background:var(--card);cursor:pointer;transition:background .15s}
+.formula-card:hover{background:var(--bg2)}
+.formula-card.hidden{display:none!important}
+.formula-card.dimmed{opacity:.35}
+.formula-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:4px}
+.formula-name{font-family:var(--ff-head);font-size:1em;font-weight:600;color:var(--navy)}
+.formula-price{font-family:var(--ff-head);font-weight:700;color:var(--navy);white-space:nowrap}
+.formula-type{font-size:.78em;color:var(--gold2);font-style:italic;margin-bottom:3px}
+.formula-desc{font-size:.8em;color:var(--txt3);font-style:italic}
+
+/* ── DETAIL MODAL ── */
+#detail-modal{position:fixed;inset:0;z-index:500;display:none;align-items:flex-end}
+#detail-modal.open{display:flex}
+#modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5);animation:fadeIn .2s}
+#modal-box{position:relative;background:var(--card);width:100%;max-width:480px;margin:0 auto;border-radius:20px 20px 0 0;max-height:85vh;overflow-y:auto;animation:slideUp .3s ease-out;padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(min-width:500px){#detail-modal{align-items:center}#modal-box{border-radius:16px;max-height:80vh}}
+#modal-photo{width:100%;height:200px;object-fit:cover;border-radius:20px 20px 0 0;display:none}
+#modal-photo.visible{display:block}
+.modal-body{padding:20px 20px 24px}
+.modal-handle{width:40px;height:4px;background:var(--bord);border-radius:2px;margin:0 auto 16px}
+#modal-close{position:absolute;top:12px;right:14px;background:rgba(255,255,255,.9);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1em;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+#modal-name{font-family:var(--ff-head);font-size:1.3em;font-weight:700;color:var(--navy);margin-bottom:6px}
+#modal-price{font-family:var(--ff-head);font-size:1.1em;font-weight:700;color:var(--gold2);margin-bottom:10px}
+#modal-desc{font-size:.88em;color:var(--txt2);font-style:italic;line-height:1.6;margin-bottom:14px}
+#modal-details{font-size:.83em;color:var(--txt2);line-height:1.6;margin-bottom:14px;padding:12px;background:var(--bg2);border-radius:8px;border-left:3px solid var(--gold)}
+#modal-allergens-title{font-size:.78em;font-weight:600;color:var(--txt2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+#modal-badges{display:flex;flex-wrap:wrap;gap:5px}
+
+/* admin panel supprimé — accessible via admin.html séparé */
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:28px 16px;border-top:1px solid var(--bord);color:var(--txt3);font-size:.72em;letter-spacing:1px;margin-top:8px}
+footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
 </style>
 </head>
-<body><div class="pg">
+<body>
+
+<div id="lang-bar">
+  <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  <button class="lang-btn" onclick="setLang('nl')" id="btn-nl">NL</button>
+</div>
+
 <header>
-<span class="orn">✦ ✦ ✦</span>
-<h1>Le Bistrot<br>de Diane</h1>
-<p class="tg">Menu du moment</p>
-<div class="hd"><span>✦</span></div>
+  <span class="orn">✦ ✦ ✦</span>
+  <h1>Le bistrot de Diane</h1>
+  <p class="tagline" id="tagline">Menu du moment</p>
+  <div id="schedule-badge"></div>
 </header>
-<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Formules du Midi</h2></div><div class="fc"><div class="fh"><span class="fn">Entrée + Plat</span><span class="fp">16.00 €</span></div><p class="fco">tomate mozza + pates au pesto</p></div>
-<div class="fc"><div class="fh"><span class="fn">Plat + Dessert</span><span class="fp">16.00 €</span></div><p class="fco">pates au pesto + glace 2 boules</p></div>
-<div class="fc"><div class="fh"><span class="fn">Entrée + Plat + Dessert</span><span class="fp">19.00 €</span></div><p class="fco">tomates mozza + pates au pesto + glace 2 boules</p></div></section>
-<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Entrées</h2></div><div class="mw"><div class="mi"><span class="in">salade cesar</span><span class="dt"></span><span class="ip">10.00 €</span></div></div></section>
-<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Plats</h2></div><div class="mw"><div class="mi"><span class="in">aprahé facon mamlakate</span><span class="dt"></span><span class="ip">15.00 €</span></div></div></section>
-<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">Desserts</h2></div><div class="mw"><div class="mi"><span class="in">tchayé guepta</span><span class="dt"></span><span class="ip">12.00 €</span></div></div></section>
-<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">plat du jour</h2></div><div class="mw"><div class="mi"><span class="in">concassé de tomate a la peruvienne</span><span class="dt"></span><span class="ip">16.00 €</span></div></div></section>
-<section class="ms"><div class="sh"><div class="sl"></div><h2 class="st">boissons chaudes</h2></div><div class="mw"><div class="mi"><span class="in">café</span><span class="dt"></span><span class="ip">1.50 €</span></div></div>
-<div class="mw"><div class="mi"><span class="in">thé</span><span class="dt"></span><span class="ip">2.50 €</span></div></div></section>
-<footer><p>Mis à jour le 28 mai 2026 à 01h40</p><p class="copy">© N.Y 2026 — DematCard. Tous droits réservés.<br>Toute reproduction, copie ou diffusion, même partielle, est interdite sans autorisation écrite.</p></footer>
-</div></body></html>
+
+<div id="filter-bar"></div>
+<nav id="tab-nav"></nav>
+
+<main id="menu-content"></main>
+
+<div id="detail-modal">
+  <div id="modal-overlay" onclick="closeModal()"></div>
+  <div id="modal-box">
+    <img id="modal-photo" src="" alt="">
+    <div class="modal-body">
+      <div class="modal-handle"></div>
+      <button id="modal-close" onclick="closeModal()">✕</button>
+      <div id="modal-name"></div>
+      <div id="modal-price"></div>
+      <div id="modal-desc"></div>
+      <div id="modal-details"></div>
+      <div id="modal-allergens-title"></div>
+      <div id="modal-badges"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p id="footer-date">Mis à jour le 29 mai 2026 à 17h29</p>
+  <p class="copy">© N.Y 2026 — DematCard. Tous droits réservés.<br>Toute reproduction ou diffusion interdite sans autorisation écrite.</p>
+</footer>
+
+<script>
+// ── DATA ────────────────────────────────────────────────────────────
+const MENU = [{"id": "BED5A7AD", "name": "Formules du Midi", "trans": {"en": "Set Lunch Menus", "nl": "Lunchmenu's"}, "type": "formula", "schedule": "all", "items": [{"id": "289DA759", "name": "Entrée + Plat", "price": 16.0, "comment": "tomate mozza + pates au pesto", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "EP"}, {"id": "1CC4A37E", "name": "Plat + Dessert", "price": 16.0, "comment": "pates au pesto + glace 2 boules", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "PD"}, {"id": "451074CE", "name": "Entrée + Plat + Dessert", "price": 19.0, "comment": "tomates mozza + pates au pesto + glace 2 boules", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "EPD"}]}, {"id": "5B727EF6", "name": "Entrées", "trans": {"en": "Starters", "nl": "Voorgerechten"}, "type": "regular", "schedule": "all", "items": [{"id": "9C4EA583", "name": "salade cesar", "price": 10.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}]}, {"id": "55DA8B7B", "name": "Plats", "trans": {"en": "Main Courses", "nl": "Hoofdgerechten"}, "type": "regular", "schedule": "all", "items": [{"id": "F91C18B6", "name": "aprahé facon mamlakate", "price": 15.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}]}, {"id": "EFACB88A", "name": "Desserts", "trans": {"en": "Desserts", "nl": "Desserts"}, "type": "regular", "schedule": "all", "items": [{"id": "9F407714", "name": "tchayé guepta", "price": 12.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}]}, {"id": "606AF5DD", "name": "boissons chaudes", "trans": {"en": "boissons chaudes", "nl": "boissons chaudes"}, "type": "regular", "schedule": "all", "items": [{"id": "517D8D75", "name": "café", "price": 1.5, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}, {"id": "938CBD75", "name": "thé", "price": 2.5, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}]}];
+const G = { en: {"Entrées": "Starters", "Entrée": "Starter", "Plats": "Main Courses", "Plat": "Main Course", "Desserts": "Desserts", "Boissons": "Drinks", "Formules du Midi": "Set Lunch Menus", "Fromages": "Cheese Selection", "Suggestions du Chef": "Chef's Specials", "Planches": "Sharing Boards", "Cocktails": "Cocktails", "Vins": "Wines", "Bières": "Beers", "Café & Infusions": "Coffee & Herbal Teas", "Entrée + Plat": "Starter + Main", "Plat + Dessert": "Main + Dessert", "Entrée + Plat + Dessert": "Starter + Main + Dessert", "Menu du moment": "Today's Menu", "Mis à jour le": "Updated on", "Service du midi": "Lunch service", "Service du soir": "Dinner service", "Actif": "Active", "Végétarien": "Vegetarian", "Vegan": "Vegan", "Sans gluten": "Gluten-free", "Sans lactose": "Lactose-free", "Sans arachides": "Peanut-free", "Halal": "Halal", "Bio": "Organic", "Gluten": "Gluten", "Crustacés": "Crustaceans", "Œufs": "Eggs", "Poisson": "Fish", "Arachides": "Peanuts", "Soja": "Soya", "Lait": "Milk", "Fruits à coque": "Tree nuts", "Céleri": "Celery", "Moutarde": "Mustard", "Sésame": "Sesame", "Sulfites": "Sulphites", "Lupin": "Lupin", "Mollusques": "Molluscs", "Filtres": "Filters", "Aucun filtre actif": "No active filter", "Allergènes": "Allergens", "Détails": "Details", "Fermer": "Close", "Tableau de bord": "Dashboard", "Scans aujourd'hui": "Scans today", "Plats les plus cliqués": "Most viewed dishes", "Aucune donnée": "No data yet"}, nl: {"Entrées": "Voorgerechten", "Entrée": "Voorgerecht", "Plats": "Hoofdgerechten", "Plat": "Hoofdgerecht", "Desserts": "Desserts", "Boissons": "Dranken", "Formules du Midi": "Lunchmenu's", "Fromages": "Kaasplank", "Suggestions du Chef": "Aanbevelingen van de Chef", "Planches": "Broodplanken", "Cocktails": "Cocktails", "Vins": "Wijnen", "Bières": "Bieren", "Café & Infusions": "Koffie & Kruidenthee", "Entrée + Plat": "Voorgerecht + Hoofdgerecht", "Plat + Dessert": "Hoofdgerecht + Dessert", "Entrée + Plat + Dessert": "Voorgerecht + Hoofdgerecht + Dessert", "Menu du moment": "Menu van de dag", "Mis à jour le": "Bijgewerkt op", "Service du midi": "Lunchservice", "Service du soir": "Dinerservice", "Actif": "Actief", "Végétarien": "Vegetarisch", "Vegan": "Veganistisch", "Sans gluten": "Glutenvrij", "Sans lactose": "Lactosevrij", "Sans arachides": "Zonder pinda's", "Halal": "Halal", "Bio": "Biologisch", "Gluten": "Gluten", "Crustacés": "Schaaldieren", "Œufs": "Eieren", "Poisson": "Vis", "Arachides": "Pinda's", "Soja": "Soja", "Lait": "Melk", "Fruits à coque": "Noten", "Céleri": "Selderij", "Moutarde": "Mosterd", "Sésame": "Sesam", "Sulfites": "Sulfieten", "Lupin": "Lupine", "Mollusques": "Weekdieren", "Filtres": "Filters", "Aucun filtre actif": "Geen actief filter", "Allergènes": "Allergenen", "Détails": "Details", "Fermer": "Sluiten", "Tableau de bord": "Dashboard", "Scans aujourd'hui": "Scans vandaag", "Plats les plus cliqués": "Meest bekeken gerechten", "Aucune donnée": "Nog geen gegevens"} };
+const ALLERGEN_L = {"gluten": "Gluten", "crustaces": "Crustacés", "oeufs": "Œufs", "poisson": "Poisson", "arachides": "Arachides", "soja": "Soja", "lait": "Lait", "fruits_coque": "Fruits à coque", "celeri": "Céleri", "moutarde": "Moutarde", "sesame": "Sésame", "sulfites": "Sulfites", "lupin": "Lupin", "mollusques": "Mollusques"};
+const DIET_L     = {"vegetarien": "Végétarien", "vegan": "Vegan", "sans_gluten": "Sans gluten", "sans_lactose": "Sans lactose", "sans_arachides": "Sans arachides", "halal": "Halal", "bio": "Bio"};
+const FORMULA_L  = { en: {"EP": "Starter + Main", "PD": "Main + Dessert", "EPD": "Starter + Main + Dessert"}, nl: {"EP": "Voorgerecht + Hoofdgerecht", "PD": "Hoofdgerecht + Dessert", "EPD": "Voorgerecht + Hoofdgerecht + Dessert"} };
+const FORMULA_FR = { EP:'Entrée + Plat', PD:'Plat + Dessert', EPD:'Entrée + Plat + Dessert' };
+
+// ── DISPLAY FLAGS ────────────────────────────────────────────────────
+const SHOW_ALLERGENS = true;
+const SHOW_DIET_TAGS  = true;
+
+// ── STATE ───────────────────────────────────────────────────────────
+let lang      = 'fr';
+let filters   = new Set();
+let activeTab = '';
+
+// ── SCHEDULE ────────────────────────────────────────────────────────
+function getService() {
+  return new Date().getHours() >= 18 ? 'soir' : 'midi';
+}
+
+// ── TRANSLATION ─────────────────────────────────────────────────────
+function tr(key) {
+  if (lang === 'fr') return key;
+  return (G[lang] && G[lang][key]) || key;
+}
+function trItem(item, field) {
+  if (lang === 'fr') return item[field] || '';
+  return (item.translations && item.translations[lang] && item.translations[lang][field]) || item[field] || '';
+}
+function trFormula(type) {
+  if (lang === 'fr') return FORMULA_FR[type] || '';
+  return (FORMULA_L[lang] && FORMULA_L[lang][type]) || FORMULA_FR[type] || '';
+}
+function trBadge(kind, code) {
+  if (kind === 'al') {
+    const frLabel = ALLERGEN_L[code] || code;
+    if (lang === 'fr') return frLabel;
+    return (G[lang] && G[lang][frLabel]) || frLabel;
+  }
+  const frLabel = DIET_L[code] || code;
+  if (lang === 'fr') return frLabel;
+  return (G[lang] && G[lang][frLabel]) || frLabel;
+}
+
+// ── RENDER ──────────────────────────────────────────────────────────
+function buildFilterBar() {
+  const bar = document.getElementById('filter-bar');
+  if (!SHOW_ALLERGENS && !SHOW_DIET_TAGS) { bar.style.display='none'; return; }
+  const chips = [
+    ...(SHOW_DIET_TAGS  ? [
+      {id:'vegetarien',  label:'🌿 Végétarien',   type:'diet'},
+      {id:'vegan',       label:'🌱 Vegan',         type:'diet'},
+      {id:'sans_gluten', label:'🌾 Sans gluten',   type:'diet'},
+      {id:'sans_lactose',label:'🥛 Sans lactose',  type:'diet'},
+    ] : []),
+    ...(SHOW_ALLERGENS ? [
+      {id:'no_arachides',label:'🥜 Sans arachides',type:'allergen'},
+    ] : []),
+  ];
+  bar.innerHTML = chips.map(c =>
+    `<button class="filter-chip" data-filter="${c.id}" onclick="toggleFilter('${c.id}',${JSON.stringify(c.type)})">${c.label}</button>`
+  ).join('') + '<button id="filter-clear" onclick="clearFilters()">✕ Effacer</button>';
+}
+
+function buildTabs() {
+  const nav = document.getElementById('tab-nav');
+  const svc = getService();
+  const visible = MENU.filter(c => shouldShowCat(c, svc));
+  nav.innerHTML = visible.map((c,i) =>
+    `<button class="tab-btn${i===0?' active':''}" data-cat="${c.id}" onclick="switchTab('${c.id}')">${trCat(c)}</button>`
+  ).join('');
+  if (visible.length) activeTab = visible[0].id;
+}
+
+function trCat(cat) {
+  if (lang === 'fr') return cat.name;
+  return (cat.trans && cat.trans[lang]) || tr(cat.name) || cat.name;
+}
+
+function shouldShowCat(cat, svc) {
+  const cs = cat.schedule || 'all';
+  return cs === 'all' || cs === svc;
+}
+
+function buildSections() {
+  const content = document.getElementById('menu-content');
+  const svc = getService();
+  content.innerHTML = MENU.filter(c => shouldShowCat(c, svc)).map((cat, ci) => {
+    const items = cat.items.map(item => {
+      const sched = item.schedule || 'all';
+      if (sched !== 'all' && sched !== svc) return '';
+      return item.is_formula ? renderFormula(item) : renderDish(item);
+    }).join('');
+    return `<section class="cat-section${ci===0?' active':''}" id="sec-${cat.id}">
+      <div class="sec-title" id="sectitle-${cat.id}">${trCat(cat)}</div>
+      ${items || '<div class="empty-msg">—</div>'}
+      <div class="empty-msg" id="empty-${cat.id}" style="display:none">Aucun plat disponible avec ces filtres.</div>
+    </section>`;
+  }).join('');
+}
+
+function renderDish(item) {
+  const al = (item.allergens || []).join(' ');
+  const dt = (item.diet_tags || []).join(' ');
+  const hasPic = item.photo && item.photo.length > 10;
+  const pic = hasPic ? `<img class="dish-photo" src="${item.photo}" alt="" loading="lazy">` : '';
+  const name = trItem(item,'name');
+  const desc = trItem(item,'comment');
+  const badges = [
+    ...(SHOW_ALLERGENS ? (item.allergens||[]).map(a=>`<span class="badge allergen" data-code="al:${a}">${trBadge('al',a)}</span>`) : []),
+    ...(SHOW_DIET_TAGS  ? (item.diet_tags||[]).map(d=>`<span class="badge diet" data-code="dt:${d}">${trBadge('dt',d)}</span>`)    : []),
+  ].join('');
+  return `<div class="dish-card" data-id="${item.id}" data-allergens="${al}" data-diet="${dt}"
+    onclick="openModal('${item.id}');trackClick('${item.id}')">
+    ${pic}
+    <div class="dish-main">
+      <div class="dish-name">${escHtml(name)}</div>
+      ${desc?`<div class="dish-desc">${escHtml(desc)}</div>`:''}
+      ${badges?`<div class="badge-row">${badges}</div>`:''}
+    </div>
+    <div class="dish-right">
+      <span class="dish-price">${item.price.toFixed(2)} €</span>
+      <span class="dish-arrow">›</span>
+    </div>
+  </div>`;
+}
+
+function renderFormula(item) {
+  const name = trItem(item,'name');
+  const desc = trItem(item,'comment');
+  const ftype = trFormula(item.formula_type);
+  return `<div class="formula-card" data-id="${item.id}" data-allergens="" data-diet=""
+    onclick="openModal('${item.id}');trackClick('${item.id}')">
+    <div class="formula-top">
+      <span class="formula-name">${escHtml(name)}</span>
+      <span class="formula-price">${item.price.toFixed(2)} €</span>
+    </div>
+    ${ftype?`<div class="formula-type">${escHtml(ftype)}</div>`:''}
+    ${desc?`<div class="formula-desc">${escHtml(desc)}</div>`:''}
+  </div>`;
+}
+
+// ── TABS ────────────────────────────────────────────────────────────
+function switchTab(catId) {
+  activeTab = catId;
+  document.querySelectorAll('.cat-section').forEach(s=>s.classList.toggle('active', s.id==='sec-'+catId));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.cat===catId));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── LANGUAGE ────────────────────────────────────────────────────────
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.id==='btn-'+l));
+  document.documentElement.lang = l;
+  document.getElementById('tagline').textContent = tr('Menu du moment');
+  refreshScheduleBadge();
+  // Re-render tabs, sections, filter labels
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    const cat = MENU.find(c=>c.id===btn.dataset.cat);
+    if (cat) btn.textContent = trCat(cat);
+  });
+  document.querySelectorAll('.cat-section').forEach(sec=>{
+    const cid = sec.id.replace('sec-','');
+    const cat = MENU.find(c=>c.id===cid);
+    const t = sec.querySelector('[id^=sectitle-]');
+    if (cat && t) t.textContent = trCat(cat);
+  });
+  document.querySelectorAll('.dish-card,.formula-card').forEach(card=>{
+    const id = card.dataset.id;
+    const item = findItem(id);
+    if (!item) return;
+    const nameEl = card.querySelector('.dish-name,.formula-name');
+    const descEl = card.querySelector('.dish-desc,.formula-desc');
+    const typeEl = card.querySelector('.formula-type');
+    if (nameEl) nameEl.textContent = trItem(item,'name');
+    if (descEl) descEl.textContent = trItem(item,'comment');
+    if (typeEl) typeEl.textContent = trFormula(item.formula_type);
+    card.querySelectorAll('[data-code]').forEach(badge=>{
+      const [kind, code] = badge.dataset.code.split(':');
+      badge.textContent = trBadge(kind, code);
+    });
+  });
+}
+
+function findItem(id) {
+  for (const cat of MENU) for (const it of cat.items) if (it.id===id) return it;
+  return null;
+}
+
+// ── FILTERS ─────────────────────────────────────────────────────────
+function toggleFilter(filterId, type) {
+  const btn = document.querySelector(`[data-filter="${filterId}"]`);
+  if (filters.has(filterId)) { filters.delete(filterId); btn&&btn.classList.remove('active'); }
+  else { filters.add(filterId); btn&&btn.classList.add('active'); }
+  applyFilters();
+  document.getElementById('filter-clear').style.display = filters.size>0?'inline-flex':'none';
+}
+function clearFilters() {
+  filters.clear();
+  document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+  document.getElementById('filter-clear').style.display='none';
+  applyFilters();
+}
+function applyFilters() {
+  document.querySelectorAll('.dish-card,.formula-card').forEach(card=>{
+    let show = true;
+    for (const f of filters) {
+      if (f.startsWith('no_')) {
+        const al = f.slice(3);
+        if ((card.dataset.allergens||'').split(' ').includes(al)) show=false;
+      } else {
+        if (!(card.dataset.diet||'').split(' ').includes(f)) show=false;
+      }
+    }
+    card.classList.toggle('hidden', !show);
+  });
+  document.querySelectorAll('.cat-section').forEach(sec=>{
+    const cid = sec.id.replace('sec-','');
+    const visible = [...sec.querySelectorAll('.dish-card,.formula-card')].some(c=>!c.classList.contains('hidden'));
+    const em = document.getElementById('empty-'+cid);
+    if (em) em.style.display = visible?'none':'block';
+  });
+}
+
+// ── MODAL ───────────────────────────────────────────────────────────
+function openModal(id) {
+  const item = findItem(id);
+  if (!item) return;
+  const name = trItem(item,'name');
+  const desc = trItem(item,'comment');
+  const det  = item.details || '';
+  const modal = document.getElementById('detail-modal');
+  const photo = document.getElementById('modal-photo');
+  if (item.photo && item.photo.length>10) {
+    photo.src = item.photo; photo.classList.add('visible');
+  } else {
+    photo.src=''; photo.classList.remove('visible');
+  }
+  document.getElementById('modal-name').textContent  = name;
+  document.getElementById('modal-price').textContent = item.price.toFixed(2)+' €';
+  document.getElementById('modal-desc').textContent  = desc;
+  const detEl = document.getElementById('modal-details');
+  detEl.textContent = det; detEl.style.display = det?'block':'none';
+  const alTitle = document.getElementById('modal-allergens-title');
+  const alBadges= document.getElementById('modal-badges');
+  const allBadges = [
+    ...(SHOW_ALLERGENS ? (item.allergens||[]).map(a=>`<span class="badge allergen">${trBadge('al',a)}</span>`) : []),
+    ...(SHOW_DIET_TAGS  ? (item.diet_tags||[]).map(d=>`<span class="badge diet">${trBadge('dt',d)}</span>`)    : []),
+  ];
+  if (allBadges.length) {
+    alTitle.textContent=tr('Allergènes'); alTitle.style.display='block';
+    alBadges.innerHTML=allBadges.join('');
+  } else {
+    alTitle.style.display='none'; alBadges.innerHTML='';
+  }
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal() {
+  document.getElementById('detail-modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// ── SCHEDULE BADGE ───────────────────────────────────────────────────
+function refreshScheduleBadge() {
+  const svc = getService();
+  const badge = document.getElementById('schedule-badge');
+  const label = svc==='soir' ? tr('Service du soir') : tr('Service du midi');
+  badge.textContent = label;
+  badge.className = 'schedule-badge '+svc;
+}
+
+// ── ANALYTICS ───────────────────────────────────────────────────────
+function trackScan() {
+  try {
+    const today = new Date().toISOString().slice(0,10);
+    const d = JSON.parse(localStorage.getItem('dc_scans')||'{}');
+    d[today] = (d[today]||0)+1;
+    localStorage.setItem('dc_scans',JSON.stringify(d));
+  } catch(e) {}
+}
+function trackClick(id) {
+  try {
+    const d = JSON.parse(localStorage.getItem('dc_clicks')||'{}');
+    d[id] = (d[id]||0)+1;
+    localStorage.setItem('dc_clicks',JSON.stringify(d));
+  } catch(e) {}
+}
+
+// ── UTILITIES ───────────────────────────────────────────────────────
+function escHtml(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────
+(function init() {
+  refreshScheduleBadge();
+  buildFilterBar();
+  buildTabs();
+  buildSections();
+  trackScan();
+  // Swipe to close modal
+  let touchY=0;
+  document.getElementById('modal-box').addEventListener('touchstart',e=>{touchY=e.touches[0].clientY},{passive:true});
+  document.getElementById('modal-box').addEventListener('touchmove',e=>{
+    if(e.touches[0].clientY-touchY>60) closeModal();
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
