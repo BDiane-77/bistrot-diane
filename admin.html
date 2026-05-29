@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Le bistrot de Diane — Tableau de bord</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#1B2B45;--gold:#C9A96E;--gold2:#9B7A2E;--bg:#FAF8F3;--card:#fff;
+  --txt:#1C1C2A;--txt2:#6A6A7A;--txt3:#9A8B77;--bord:#DDD5C6;--grn:#2A7A52;
+  --red:#B83232;--ff-head:'Georgia',serif;--ff-body:'Segoe UI',sans-serif}
+body{background:var(--bg);color:var(--txt);font-family:var(--ff-body);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+#pin-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;width:100%;padding:24px}
+#pin-box{background:var(--card);border-radius:16px;padding:40px 36px;box-shadow:0 4px 24px rgba(0,0,0,.1);max-width:340px;width:100%;text-align:center}
+#pin-box h1{font-family:var(--ff-head);font-size:1.5em;color:var(--navy);margin-bottom:8px}
+#pin-box p{color:var(--txt2);font-size:.88em;margin-bottom:24px}
+#pin-input{width:100%;padding:14px;font-size:1.2em;text-align:center;letter-spacing:8px;border:2px solid var(--bord);border-radius:8px;font-family:monospace;outline:none;transition:border .2s}
+#pin-input:focus{border-color:var(--gold)}
+#pin-btn{margin-top:16px;width:100%;padding:14px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:1em;font-weight:600;cursor:pointer;transition:background .2s}
+#pin-btn:hover{background:#243658}
+#pin-err{color:var(--red);font-size:.85em;margin-top:10px;min-height:20px}
+#dashboard{display:none;width:100%;max-width:700px;padding:24px 20px 60px}
+.db-header{background:var(--navy);color:#fff;padding:24px 28px;border-radius:12px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center}
+.db-header h1{font-family:var(--ff-head);font-size:1.4em;font-weight:700}
+.db-header .db-date{font-size:.78em;opacity:.6}
+.card{background:var(--card);border-radius:12px;padding:24px;margin-bottom:18px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.card-title{font-family:var(--ff-head);font-size:1.05em;font-weight:700;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:8px}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--bord);font-size:.9em}
+.stat-row:last-child{border-bottom:none}
+.stat-n{color:var(--navy);font-weight:500}
+.stat-v{font-weight:700;color:var(--gold2)}
+.bar-wrap{margin-top:5px;background:#F0EBE0;border-radius:4px;height:6px;width:100%}
+.bar-fill{height:6px;background:var(--gold);border-radius:4px;transition:width .6s ease}
+.stat-col{display:flex;flex-direction:column;width:100%}
+.empty{color:var(--txt3);font-style:italic;font-size:.88em;text-align:center;padding:16px 0}
+.total-badge{display:inline-block;background:#EFF6FF;color:#1E3A8A;border-radius:20px;padding:4px 14px;font-size:.78em;font-weight:600;margin-left:10px}
+.reset-btn{margin-top:18px;padding:10px 20px;background:#FEF2F2;color:var(--red);border:1px solid #FECACA;border-radius:8px;cursor:pointer;font-size:.85em;font-weight:600;transition:background .2s}
+.reset-btn:hover{background:#FEE2E2}
+.logout-btn{background:rgba(255,255,255,.15);color:#fff;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:.8em;font-weight:600}
+.logout-btn:hover{background:rgba(255,255,255,.25)}
+</style>
+</head>
+<body>
+
+<div id="pin-screen">
+  <div id="pin-box">
+    <div style="font-size:2em;margin-bottom:12px">🔐</div>
+    <h1>Le bistrot de Diane</h1>
+    <p>Tableau de bord restaurateur<br>Entrez votre code PIN pour accéder.</p>
+    <input id="pin-input" type="password" inputmode="numeric" maxlength="8"
+           placeholder="••••" autocomplete="off"
+           onkeydown="if(event.key==='Enter')checkPin()">
+    <button id="pin-btn" onclick="checkPin()">Accéder →</button>
+    <div id="pin-err"></div>
+  </div>
+</div>
+
+<div id="dashboard">
+  <div class="db-header">
+    <div>
+      <h1>📊 Tableau de bord</h1>
+      <div class="db-date">Le bistrot de Diane · Mis à jour le 29 mai 2026 à 17h29</div>
+    </div>
+    <button class="logout-btn" onclick="logout()">Déconnexion</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      📅 Scans QR Code — 30 derniers jours
+      <span class="total-badge" id="total-scans"></span>
+    </div>
+    <div id="adm-scans"></div>
+    <button class="reset-btn" onclick="resetScans()">🗑 Réinitialiser les scans</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      🍽 Plats les plus consultés
+      <span class="total-badge" id="total-clicks"></span>
+    </div>
+    <div id="adm-clicks"></div>
+    <button class="reset-btn" onclick="resetClicks()">🗑 Réinitialiser les clics</button>
+  </div>
+</div>
+
+<script>
+const CORRECT_PIN = "1234";
+const ITEMS = {"289DA759": "Entrée + Plat", "1CC4A37E": "Plat + Dessert", "451074CE": "Entrée + Plat + Dessert", "9C4EA583": "salade cesar", "F91C18B6": "aprahé facon mamlakate", "9F407714": "tchayé guepta", "517D8D75": "café", "938CBD75": "thé"};
+
+function escHtml(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function checkPin() {
+  const val = document.getElementById('pin-input').value.trim();
+  if (val === CORRECT_PIN) {
+    sessionStorage.setItem('admin_ok','1');
+    showDashboard();
+  } else {
+    document.getElementById('pin-err').textContent = '❌ Code incorrect, réessayez.';
+    document.getElementById('pin-input').value = '';
+    document.getElementById('pin-input').focus();
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem('admin_ok');
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('pin-screen').style.display='flex';
+  document.getElementById('pin-input').value='';
+  document.getElementById('pin-err').textContent='';
+}
+
+function showDashboard() {
+  document.getElementById('pin-screen').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  renderAdmin();
+}
+
+function renderAdmin() {
+  // ── Scans ─────────────────────────────────────────────────
+  const scans = JSON.parse(localStorage.getItem('dc_scans')||'{}');
+  const days = Object.keys(scans).sort().slice(-30);
+  const totalScans = days.reduce((s,d)=>s+scans[d],0);
+  document.getElementById('total-scans').textContent = totalScans+' total';
+  const scanEl = document.getElementById('adm-scans');
+  if (!days.length) {
+    scanEl.innerHTML = '<div class="empty">Aucun scan enregistré.</div>';
+  } else {
+    const maxS = Math.max(...days.map(d=>scans[d]));
+    scanEl.innerHTML = [...days].reverse().map(d=>{
+      const v = scans[d];
+      const pct = Math.round(v/maxS*100);
+      return `<div class="stat-row">
+        <div class="stat-col">
+          <div style="display:flex;justify-content:space-between">
+            <span class="stat-n">${d}</span>
+            <span class="stat-v">${v} scan${v>1?'s':''}</span>
+          </div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:${pct}%"></div></div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // ── Clics ─────────────────────────────────────────────────
+  const clicks = JSON.parse(localStorage.getItem('dc_clicks')||'{}');
+  const sorted = Object.entries(clicks).sort((a,b)=>b[1]-a[1]).slice(0,15);
+  const totalClicks = sorted.reduce((s,[,v])=>s+v,0);
+  document.getElementById('total-clicks').textContent = totalClicks+' total';
+  const maxV = sorted[0]?.[1]||1;
+  const clickEl = document.getElementById('adm-clicks');
+  if (!sorted.length) {
+    clickEl.innerHTML = '<div class="empty">Aucun clic enregistré.</div>';
+  } else {
+    clickEl.innerHTML = sorted.map(([id,v])=>{
+      const name = ITEMS[id] || id;
+      const pct = Math.round(v/maxV*100);
+      return `<div class="stat-row">
+        <div class="stat-col">
+          <div style="display:flex;justify-content:space-between">
+            <span class="stat-n">${escHtml(name)}</span>
+            <span class="stat-v">${v}</span>
+          </div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:${pct}%"></div></div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+}
+
+function resetScans() {
+  if (!confirm('Réinitialiser toutes les données de scan ?')) return;
+  localStorage.removeItem('dc_scans');
+  document.getElementById('total-scans').textContent='0 total';
+  document.getElementById('adm-scans').innerHTML='<div class="empty">Aucun scan enregistré.</div>';
+}
+
+function resetClicks() {
+  if (!confirm('Réinitialiser toutes les données de clics ?')) return;
+  localStorage.removeItem('dc_clicks');
+  document.getElementById('total-clicks').textContent='0 total';
+  document.getElementById('adm-clicks').innerHTML='<div class="empty">Aucun clic enregistré.</div>';
+}
+
+// Auto-login si déjà authentifié dans la session
+if (sessionStorage.getItem('admin_ok')==='1') {
+  showDashboard();
+} else {
+  document.getElementById('pin-input').focus();
+}
+</script>
+</body>
+</html>
