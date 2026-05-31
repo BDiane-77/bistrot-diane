@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta name="theme-color" content="#1B2B45">
-<title>Le bistro de Diane — Menu</title>
+<title>Le bistrot de Diane — Menu</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@300;400&display=swap');
 :root{--bg:#1C0610;--bg2:#280C1A;--text:#E0CCA0;--t2:#906040;--hd:#F0E0B0;--ac:#C89020;--br:#3A1428;--ft:#604030;--fd:'Libre Baskerville',serif;--fb:'Libre Franklin',sans-serif}
@@ -72,8 +72,9 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 .badge{font-size:.68em;padding:2px 7px;border-radius:10px;font-weight:500;white-space:nowrap}
 .badge.allergen{background:#FEF2F2;color:#991B1B;border:1px solid #FECACA}
 .badge.diet{background:#F0FDF4;color:#166534;border:1px solid #BBF7D0}
-.dish-right{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0;gap:6px}
+.dish-right{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0;gap:4px}
 .dish-price{font-family:var(--fd);font-weight:700;color:var(--hd);font-size:1em;white-space:nowrap}
+.dish-weight{font-size:.78em;color:var(--t2);font-weight:500;white-space:nowrap}
 .dish-arrow{color:var(--ac);font-size:1.1em;opacity:.6}
 
 /* ── FORMULA CARD ── */
@@ -123,7 +124,7 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 <header>
   
   <span class="orn">✦ ✦ ✦</span>
-  <h1>Le bistro de Diane</h1>
+  <h1>Le bistrot de Diane</h1>
   <p class="tagline" id="tagline">Menu du moment</p>
   <div id="schedule-badge"></div>
 </header>
@@ -157,7 +158,7 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 
 <script>
 // ── DATA ────────────────────────────────────────────────────────────
-const MENU = [{"id": "909C509A", "name": "Aujourd'hui", "trans": {}, "type": "regular", "schedule": "all", "parent_id": null, "items": []}, {"id": "0D72C75C", "name": "Formule du midi", "trans": {}, "type": "formula", "schedule": "midi", "parent_id": "909C509A", "items": [{"id": "28C9C4CF", "name": "Entrée + Plat", "price": 16.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "EP"}, {"id": "C56D89A8", "name": "Plat + Dessert", "price": 16.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "PD"}, {"id": "CD727E60", "name": "Entrée + Plat + Dessert", "price": 19.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "EPD"}]}, {"id": "EB2F44A2", "name": "Entrées", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "909C509A", "items": [{"id": "535A9E10", "name": "Taboulé maison", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}, {"id": "E4216F2D", "name": "Assiete de charcuterie", "price": 7.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}, {"id": "F8D1B678", "name": "Oeuf mayonnaise", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}]}, {"id": "7D4713DB", "name": "Plats", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "909C509A", "items": [{"id": "45819F1C", "name": "Coeur de faux filet", "price": 19.0, "comment": "sauces aux poivres\n180 grammes", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}]}, {"id": "81671D29", "name": "Dessert", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "909C509A", "items": [{"id": "0709E692", "name": "Café gourmand / Thé gourmand", "price": 8.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}, {"id": "FC5685D0", "name": "Crème brulée à la vanille", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}]}];
+const MENU = [{"id": "909C509A", "name": "Aujourd'hui", "trans": {}, "type": "regular", "schedule": "all", "parent_id": null, "items": []}, {"id": "0D72C75C", "name": "Formule du midi", "trans": {}, "type": "formula", "schedule": "midi", "parent_id": "909C509A", "items": [{"id": "28C9C4CF", "name": "Entrée + Plat", "price": 16.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "EP", "weight": null, "weight_unit": "g"}, {"id": "C56D89A8", "name": "Plat + Dessert", "price": 16.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "PD", "weight": null, "weight_unit": "g"}, {"id": "CD727E60", "name": "Entrée + Plat + Dessert", "price": 19.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "EPD", "weight": null, "weight_unit": "g"}]}, {"id": "EB2F44A2", "name": "Entrées", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "0D72C75C", "items": [{"id": "535A9E10", "name": "Taboulé maison", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}, {"id": "E4216F2D", "name": "Assiete de charcuterie", "price": 7.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}, {"id": "F8D1B678", "name": "Oeuf mayonnaise", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}]}, {"id": "7D4713DB", "name": "Plats", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "0D72C75C", "items": [{"id": "45819F1C", "name": "Coeur de faux filet", "price": 19.0, "comment": "sauces aux poivres\n180 grammes", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}]}, {"id": "81671D29", "name": "Dessert", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "0D72C75C", "items": [{"id": "0709E692", "name": "Café gourmand / Thé gourmand", "price": 8.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}, {"id": "FC5685D0", "name": "Crème brulée à la vanille", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}]}];
 const G = {};
 const ALLERGEN_L = {"gluten": "Gluten", "crustaces": "Crustacés", "oeufs": "Œufs", "poisson": "Poisson", "arachides": "Arachides", "soja": "Soja", "lait": "Lait", "fruits_coque": "Fruits à coque", "celeri": "Céleri", "moutarde": "Moutarde", "sesame": "Sésame", "sulfites": "Sulfites", "lupin": "Lupin", "mollusques": "Mollusques"};
 const DIET_L     = {"vegetarien": "Végétarien", "vegan": "Vegan", "sans_gluten": "Sans gluten", "sans_lactose": "Sans lactose", "sans_arachides": "Sans arachides", "halal": "Halal", "cacher": "Cacher", "bio": "Bio"};
@@ -273,7 +274,6 @@ function buildSections() {
     const kids = getChildren(cat.id).filter(c=>shouldShowCat(c,svc))
                    .map(c=>renderSubSection(c,svc,1)).join('');
     return `<section class="cat-section${ci===0?' active':''}" id="sec-${cat.id}">
-      <div class="sec-title" id="sectitle-${cat.id}">${trCat(cat)}</div>
       ${renderCatItems(cat,svc)}${kids}
       <div class="empty-msg" id="empty-${cat.id}" style="display:none">${tr('Aucun plat disponible avec ces filtres.')}</div>
     </section>`;
@@ -320,10 +320,17 @@ function renderDish(item) {
       ${badges?`<div class="badge-row">${badges}</div>`:''}
     </div>
     <div class="dish-right">
-      <span class="dish-price">${item.price.toFixed(2)} €</span>
+      <span class="dish-price">${item.price.toFixed(2).replace('.',',')} €</span>
+      ${item.weight!=null?`<span class="dish-weight">${fmtWeight(item)}</span>`:''}
       <span class="dish-arrow">›</span>
     </div>
   </div>`;
+}
+
+function fmtWeight(item) {
+  if (item.weight == null) return '';
+  const v = item.weight.toString().replace('.', ',');
+  return v + ' ' + (item.weight_unit || 'g');
 }
 
 function renderFormula(item) {
@@ -352,7 +359,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 21h28';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 21h48';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
@@ -474,18 +481,7 @@ function closeModal() {
 
 // ── SCHEDULE BADGE ───────────────────────────────────────────────────
 function refreshScheduleBadge() {
-  const svc   = getService();
-  const badge = document.getElementById('schedule-badge');
-  if (svc === 'midi') {
-    badge.textContent = tr('Service du midi') + ' · 11h–15h';
-    badge.className   = 'schedule-badge midi';
-  } else if (svc === 'soir') {
-    badge.textContent = tr('Service du soir') + ' · 17h30–23h';
-    badge.className   = 'schedule-badge soir';
-  } else {
-    badge.textContent = '';
-    badge.className   = 'schedule-badge';
-  }
+  // badge horaire masqué
 }
 
 // ── ANALYTICS ───────────────────────────────────────────────────────
