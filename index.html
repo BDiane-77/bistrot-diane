@@ -6,16 +6,8 @@
 <meta name="theme-color" content="#1B2B45">
 <title>Le Bistrot de Diane — Menu</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,700;0,900;1,200&display=swap');
-:root{--bg:#FFFFFF;--bg2:#F4F4F4;--text:#1A1A1A;--t2:#666666;--hd:#111111;--ac:#CC1A1A;--br:#E0E0E0;--ft:#999999;--fd:'Montserrat',sans-serif;--fb:'Montserrat',sans-serif}
-body{font-weight:200}
-h1{font-weight:900;letter-spacing:6px;font-size:2.9em}
-.tg{font-family:'Montserrat',sans-serif;font-style:normal;font-weight:200;letter-spacing:8px;font-size:.78em;text-transform:uppercase}
-.orn{letter-spacing:18px;font-size:.8em}
-.st{font-weight:700;letter-spacing:7px;font-size:1.15em;background:#fff}
-.in{font-family:'Montserrat',sans-serif;font-weight:200}
-.fn{font-family:'Montserrat',sans-serif;font-weight:700}
-.hd::before,.hd::after{opacity:.2}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+:root{--bg:#FAF8F3;--bg2:#F5F0E5;--text:#2C2C2C;--t2:#8A7B6A;--hd:#1C2B4A;--ac:#C9A96E;--br:#E0D4C0;--ft:#A8967E;--fd:'Playfair Display',serif;--fb:'Lato',sans-serif}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;min-height:100vh;overflow-x:hidden}
 /* ── SUB-SECTIONS ── */
@@ -382,7 +374,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 22h31';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 22h33';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
