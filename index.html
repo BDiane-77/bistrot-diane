@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta name="theme-color" content="#1B2B45">
-<title>Le bistrot de Diane — Menu</title>
+<title>Le bistro de Diane — Menu</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@300;400&display=swap');
 :root{--bg:#1C0610;--bg2:#280C1A;--text:#E0CCA0;--t2:#906040;--hd:#F0E0B0;--ac:#C89020;--br:#3A1428;--ft:#604030;--fd:'Libre Baskerville',serif;--fb:'Libre Franklin',sans-serif}
@@ -74,6 +74,7 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 .badge.diet{background:#F0FDF4;color:#166534;border:1px solid #BBF7D0}
 .dish-right{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0;gap:4px}
 .dish-price{font-family:var(--fd);font-weight:700;color:var(--hd);font-size:1em;white-space:nowrap}
+.dish-name-row{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
 .dish-weight{font-size:.78em;color:var(--t2);font-weight:500;white-space:nowrap}
 .dish-arrow{color:var(--ac);font-size:1.1em;opacity:.6}
 
@@ -124,7 +125,7 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 <header>
   
   <span class="orn">✦ ✦ ✦</span>
-  <h1>Le bistrot de Diane</h1>
+  <h1>Le bistro de Diane</h1>
   <p class="tagline" id="tagline">Menu du moment</p>
   <div id="schedule-badge"></div>
 </header>
@@ -315,13 +316,15 @@ function renderDish(item) {
     onclick="openModal('${item.id}');trackClick('${item.id}')">
     ${pic}
     <div class="dish-main">
-      <div class="dish-name">${escHtml(name)}</div>
+      <div class="dish-name-row">
+        <span class="dish-name">${escHtml(name)}</span>
+        ${item.weight!=null?`<span class="dish-weight">${fmtWeight(item)}</span>`:''}
+      </div>
       ${desc?`<div class="dish-desc">${escHtml(desc)}</div>`:''}
       ${badges?`<div class="badge-row">${badges}</div>`:''}
     </div>
     <div class="dish-right">
       <span class="dish-price">${item.price.toFixed(2).replace('.',',')} €</span>
-      ${item.weight!=null?`<span class="dish-weight">${fmtWeight(item)}</span>`:''}
       <span class="dish-arrow">›</span>
     </div>
   </div>`;
@@ -359,7 +362,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 21h51';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 21h55';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
