@@ -62,7 +62,7 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 .empty-msg{text-align:center;color:var(--ft);font-style:italic;padding:32px 16px;font-size:.9em}
 
 /* ── DISH CARD ── */
-.dish-card{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--br);background:var(--bg);cursor:pointer;transition:background .15s;align-items:flex-start}
+.dish-card{display:flex;gap:12px;padding:14px 16px;background:var(--bg);cursor:pointer;transition:background .15s;align-items:flex-start}
 .dish-card:hover,.dish-card:active{background:var(--bg2)}
 .dish-card.hidden{display:none!important}
 .dish-card.dimmed{opacity:.35}
@@ -83,13 +83,13 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 .dish-arrow{color:var(--ac);font-size:1.1em;opacity:.6}
 
 /* ── FORMULA CARD ── */
-.formula-card{padding:14px 16px;border-bottom:1px solid var(--br);border-left:3px solid var(--ac);background:var(--bg);cursor:pointer;transition:background .15s}
-.formula-card:hover{background:var(--bg2)}
+.formula-card{padding:14px 16px;border:1px solid var(--ac);border-left:3px solid var(--ac);background:var(--bg2);cursor:pointer;transition:opacity .15s;border-radius:3px;margin:8px 16px}
+.formula-card:hover{opacity:.85}
 .formula-card.hidden{display:none!important}
 .formula-card.dimmed{opacity:.35}
 .formula-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:4px}
 .formula-name{font-family:var(--fd);font-size:1em;font-weight:600;color:var(--hd)}
-.formula-price{font-family:var(--fd);font-weight:700;color:var(--hd);white-space:nowrap}
+.formula-price{font-family:var(--fd);font-weight:700;color:var(--ac);font-size:1em;white-space:nowrap}
 .formula-type{font-size:.78em;color:var(--ac);font-style:italic;margin-bottom:3px}
 .formula-desc{font-size:.8em;color:var(--ft);font-style:italic}
 
@@ -163,7 +163,7 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 
 <script>
 // ── DATA ────────────────────────────────────────────────────────────
-const MENU = [{"id": "909C509A", "name": "Aujourd'hui", "trans": {}, "type": "regular", "schedule": "all", "parent_id": null, "items": []}, {"id": "0D72C75C", "name": "Formule du midi", "trans": {}, "type": "formula", "schedule": "all", "parent_id": "909C509A", "items": [{"id": "28C9C4CF", "name": "Entrée + Plat", "price": 16.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "EP", "weight": null, "weight_unit": "g"}, {"id": "C56D89A8", "name": "Plat + Dessert", "price": 16.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "PD", "weight": null, "weight_unit": "g"}, {"id": "CD727E60", "name": "Entrée + Plat + Dessert", "price": 19.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "EPD", "weight": null, "weight_unit": "g"}]}, {"id": "EB2F44A2", "name": "Entrées", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "0D72C75C", "items": [{"id": "535A9E10", "name": "Taboulé maison", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}, {"id": "E4216F2D", "name": "Assiete de charcuterie", "price": 7.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}, {"id": "F8D1B678", "name": "Oeuf mayonnaise", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}]}, {"id": "7D4713DB", "name": "Plats", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "0D72C75C", "items": [{"id": "45819F1C", "name": "Coeur de faux filet", "price": 19.0, "comment": "sauces aux poivres", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": 180.0, "weight_unit": "g"}]}, {"id": "81671D29", "name": "Dessert", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "0D72C75C", "items": [{"id": "0709E692", "name": "Café gourmand / Thé gourmand", "price": 8.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}, {"id": "FC5685D0", "name": "Crème brulée à la vanille", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}]}];
+const MENU = [{"id": "909C509A", "name": "Aujourd'hui", "trans": {}, "type": "regular", "schedule": "all", "parent_id": null, "items": []}, {"id": "0D72C75C", "name": "Formule du midi", "trans": {}, "type": "formula", "schedule": "all", "parent_id": "909C509A", "items": [{"id": "28C9C4CF", "name": "Entrée + Plat ou Plat +Dessert", "price": 16.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": ["EP", "PD"], "weight": null, "weight_unit": "g"}, {"id": "CD727E60", "name": "Entrée + Plat + Dessert", "price": 19.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "EPD", "weight": null, "weight_unit": "g"}]}, {"id": "EB2F44A2", "name": "Entrées", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "0D72C75C", "items": [{"id": "535A9E10", "name": "Taboulé maison", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}, {"id": "E4216F2D", "name": "Assiete de charcuterie", "price": 7.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}, {"id": "F8D1B678", "name": "Oeuf mayonnaise", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}]}, {"id": "7D4713DB", "name": "Plats", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "0D72C75C", "items": [{"id": "45819F1C", "name": "Coeur de faux filet", "price": 19.0, "comment": "sauces aux poivres", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": 180.0, "weight_unit": "g"}]}, {"id": "81671D29", "name": "Dessert", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "0D72C75C", "items": [{"id": "0709E692", "name": "Café gourmand / Thé gourmand", "price": 8.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}, {"id": "FC5685D0", "name": "Crème brulée à la vanille", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": "", "weight": null, "weight_unit": "g"}]}];
 const G = {};
 const ALLERGEN_L = {"gluten": "Gluten", "crustaces": "Crustacés", "oeufs": "Œufs", "poisson": "Poisson", "arachides": "Arachides", "soja": "Soja", "lait": "Lait", "fruits_coque": "Fruits à coque", "celeri": "Céleri", "moutarde": "Moutarde", "sesame": "Sésame", "sulfites": "Sulfites", "lupin": "Lupin", "mollusques": "Mollusques"};
 const DIET_L     = {"vegetarien": "Végétarien", "vegan": "Vegan", "sans_gluten": "Sans gluten", "sans_lactose": "Sans lactose", "sans_arachides": "Sans arachides", "halal": "Halal", "cacher": "Cacher", "bio": "Bio"};
@@ -340,15 +340,24 @@ function fmtWeight(item) {
   return v + ' ' + (item.weight_unit || 'g');
 }
 
+function fmtFormulaTypes(item) {
+  const t = item.formula_type;
+  if (!t || (Array.isArray(t) && t.length === 0)) return '';
+  const arr = Array.isArray(t) ? t : [t];
+  return arr.map(code => trFormula(code)).filter(Boolean).join(' ou ');
+}
+
 function renderFormula(item) {
-  const name = trItem(item,'name');
-  const desc = trItem(item,'comment');
+  const name      = trItem(item,'name');
+  const desc      = trItem(item,'comment');
+  const typeLabel = fmtFormulaTypes(item);
   return `<div class="formula-card" data-id="${item.id}" data-allergens="" data-diet=""
     onclick="openModal('${item.id}');trackClick('${item.id}')">
     <div class="formula-top">
       <span class="formula-name">${escHtml(name)}</span>
-      <span class="formula-price">${item.price.toFixed(2)} €</span>
+      <span class="formula-price">${item.price.toFixed(2).replace('.',',')} €</span>
     </div>
+    ${typeLabel?`<div class="formula-type">${escHtml(typeLabel)}</div>`:''}
     ${desc?`<div class="formula-desc">${escHtml(desc)}</div>`:''}
   </div>`;
 }
@@ -366,7 +375,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 21h59';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 22h18';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
@@ -398,8 +407,10 @@ function setLang(l) {
     if (!item) return;
     const nameEl = card.querySelector('.dish-name,.formula-name');
     const descEl = card.querySelector('.dish-desc,.formula-desc');
+    const typeEl = card.querySelector('.formula-type');
     if (nameEl) nameEl.textContent = trItem(item,'name');
     if (descEl) descEl.textContent = trItem(item,'comment');
+    if (typeEl) typeEl.textContent = fmtFormulaTypes(item);
     card.querySelectorAll('[data-code]').forEach(badge=>{
       const [kind, code] = badge.dataset.code.split(':');
       badge.textContent = trBadge(kind, code);
