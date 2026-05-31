@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta name="theme-color" content="#1B2B45">
-<title>Le bistrot de Diane — Menu</title>
+<title>Le Bistrot de Diane — Menu</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,700;0,900;1,200&display=swap');
 :root{--bg:#FFFFFF;--bg2:#F4F4F4;--text:#1A1A1A;--t2:#666666;--hd:#111111;--ac:#CC1A1A;--br:#E0E0E0;--ft:#999999;--fd:'Montserrat',sans-serif;--fb:'Montserrat',sans-serif}
@@ -19,10 +19,10 @@ h1{font-weight:900;letter-spacing:6px;font-size:2.9em}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;min-height:100vh;overflow-x:hidden}
 /* ── SUB-SECTIONS ── */
-.sub-section{padding:0 0 4px}
-.sub-title-1{font-family:var(--fd);font-size:1.05em;font-weight:600;color:var(--ac);padding:14px 16px 8px;margin:8px 0 0;display:flex;align-items:center;gap:12px}
+.sub-section{padding:0 0 8px}
+.sub-title-1{font-family:var(--fd);font-size:1.05em;font-weight:600;color:var(--ac);padding:10px 16px 10px;margin:22px 0 8px;display:flex;align-items:center;gap:12px}
 .sub-title-1::before,.sub-title-1::after{content:'';flex:1;height:1px;background:var(--br);opacity:.7}
-.sub-title-2{font-family:var(--fd);font-size:.9em;font-weight:500;color:var(--t2);padding:10px 16px 6px;font-style:italic;display:flex;align-items:center;gap:10px}
+.sub-title-2{font-family:var(--fd);font-size:.9em;font-weight:500;color:var(--t2);padding:8px 16px 8px;margin:14px 0 6px;font-style:italic;display:flex;align-items:center;gap:10px}
 .sub-title-2::before,.sub-title-2::after{content:'';flex:1;height:1px;background:var(--br);opacity:.5}
 
 /* ── LANG BAR ── */
@@ -134,7 +134,7 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 <header>
   
   <span class="orn">✦ ✦ ✦</span>
-  <h1>Le bistrot de Diane</h1>
+  <h1>Le Bistrot de Diane</h1>
   <p class="tagline" id="tagline">Menu du moment</p>
   <div id="schedule-badge"></div>
 </header>
@@ -382,7 +382,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 22h27';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 22h31';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
