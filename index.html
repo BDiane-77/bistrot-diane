@@ -4,18 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta name="theme-color" content="#1B2B45">
-<title>Le bistrot de Diane — Menu</title>
+<title>Le bistro de Diane — Menu</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;1,400&display=swap');
-:root{--bg:#C8A878;--bg2:#B89860;--text:#2C1A0A;--t2:#5A3A20;--hd:#1A0A00;--ac:#6B3D2A;--br:#9A7848;--ft:#6A4A28;--fd:'Special Elite',cursive;--fb:'Courier Prime',monospace}
-body{font-weight:400}
-h1{font-size:2.4em;letter-spacing:4px}
-.tg{font-family:'Courier Prime',monospace;font-style:italic;letter-spacing:1px;font-size:.9em}
-.st{letter-spacing:3px;font-size:1.3em;background:#C8A878}
-.in,.fn{font-family:'Courier Prime',monospace}
-.ip,.fp{font-family:'Special Elite',cursive}
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@300;400&display=swap');
+:root{--bg:#1C0610;--bg2:#280C1A;--text:#E0CCA0;--t2:#906040;--hd:#F0E0B0;--ac:#C89020;--br:#3A1428;--ft:#604030;--fd:'Libre Baskerville',serif;--fb:'Libre Franklin',sans-serif}
+body{font-weight:300}
+h1{font-size:2.7em;letter-spacing:3px}
+.st{font-size:1.3em;letter-spacing:4px;background:#1C0610}
+.hd::before,.hd::after{opacity:.5}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;min-height:100vh;overflow-x:hidden}
+/* ── SUB-SECTIONS ── */
+.sub-section{padding:0 0 4px}
+.sub-title-1{font-family:var(--fd);font-size:1.05em;font-weight:600;color:var(--ac);padding:14px 16px 8px 20px;border-left:3px solid var(--ac);margin:8px 16px 0 16px}
+.sub-title-2{font-family:var(--fd);font-size:.9em;font-weight:500;color:var(--t2);padding:10px 16px 6px 32px;font-style:italic}
 
 /* ── LANG BAR ── */
 #lang-bar{background:var(--hd);display:flex;justify-content:flex-end;align-items:center;padding:8px 16px;gap:4px;position:sticky;top:0;z-index:100}
@@ -28,6 +30,9 @@ header{text-align:center;padding:36px 20px 28px;background:var(--bg)}
 .orn{color:var(--ac);letter-spacing:8px;font-size:.85em;display:block;margin-bottom:12px}
 h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:var(--hd);letter-spacing:3px;text-transform:uppercase;line-height:1.2}
 .tagline{font-family:var(--fd);font-style:italic;color:var(--ac);font-size:.9em;margin-top:8px;letter-spacing:1px}
+.header-logo{width:96px;height:96px;border-radius:50%;overflow:hidden;margin:0 auto 16px;position:relative;box-shadow:0 6px 22px rgba(0,0,0,.25)}
+.header-logo img{width:100%;height:100%;object-fit:cover;display:block}
+.header-logo::after{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.18) 100%);pointer-events:none}
 .schedule-badge{display:inline-block;margin-top:12px;padding:4px 14px;border-radius:20px;font-size:.72em;font-weight:500;letter-spacing:1px;text-transform:uppercase}
 .schedule-badge.midi{background:#FEF3E2;color:#B45309;border:1px solid #F59E0B}
 .schedule-badge.soir{background:#EDE9FE;color:#5B21B6;border:1px solid #8B5CF6}
@@ -57,7 +62,9 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 .dish-card:hover,.dish-card:active{background:var(--bg2)}
 .dish-card.hidden{display:none!important}
 .dish-card.dimmed{opacity:.35}
-.dish-photo{width:80px;height:80px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--bg2)}
+.dish-photo-wrap{width:84px;height:84px;border-radius:50%;overflow:hidden;flex-shrink:0;position:relative;box-shadow:0 6px 18px rgba(0,0,0,.22)}
+.dish-photo-wrap::after{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.20) 100%);pointer-events:none}
+.dish-photo{width:100%;height:100%;object-fit:cover;display:block}
 .dish-main{flex:1;min-width:0}
 .dish-name{font-family:var(--fd);font-size:1em;color:var(--hd);font-weight:600;line-height:1.3;margin-bottom:3px}
 .dish-desc{font-size:.8em;color:var(--ft);font-style:italic;line-height:1.4;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -111,15 +118,12 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 </head>
 <body>
 
-<div id="lang-bar">
-  <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
-  <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
-  <button class="lang-btn" onclick="setLang('nl')" id="btn-nl">NL</button>
-</div>
+<div id="lang-bar"></div>
 
 <header>
+  
   <span class="orn">✦ ✦ ✦</span>
-  <h1>Le bistrot de Diane</h1>
+  <h1>Le bistro de Diane</h1>
   <p class="tagline" id="tagline">Menu du moment</p>
   <div id="schedule-badge"></div>
 </header>
@@ -153,12 +157,14 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 
 <script>
 // ── DATA ────────────────────────────────────────────────────────────
-const MENU = [{"id": "BED5A7AD", "name": "Formules du Midi", "trans": {"en": "Set Lunch Menus", "nl": "Lunchmenu's"}, "type": "formula", "schedule": "midi", "items": [{"id": "289DA759", "name": "Entrée + Plat", "price": 16.0, "comment": "tomate mozza + pates au pesto", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {"en": {"comment": "tomato mozza + pesto pasta"}, "nl": {"comment": "tomatenmozza + pestopasta"}}, "details": "", "is_formula": true, "formula_type": "EP"}, {"id": "1CC4A37E", "name": "Plat + Dessert", "price": 16.0, "comment": "pates au pesto + glace 2 boules", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {"en": {"comment": "pesto pasta + ice cream 2 scoops"}, "nl": {"comment": "pestopasta + ijs 2 schepjes"}}, "details": "", "is_formula": true, "formula_type": "PD"}, {"id": "451074CE", "name": "Entrée + Plat + Dessert", "price": 19.0, "comment": "tomates mozza + pates au pesto + glace 2 boules", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {"en": {"comment": "mozza tomatoes + pesto pasta + ice cream 2 scoops"}, "nl": {"comment": "mozza tomaten + pesto pasta + ijs 2 bolletjes"}}, "details": "", "is_formula": true, "formula_type": "EPD"}]}, {"id": "6AEEB9F3", "name": "Formules du soir", "trans": {"en": "evening formulas", "nl": "Avondformules"}, "type": "formula", "schedule": "soir", "items": [{"id": "37464F86", "name": "Entrée + Plat + Dessert", "price": 25.0, "comment": "Oeuf mayo / pavé de saumon fumé / faicelle de fromage blanc", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {"en": {"comment": "Mayo Egg/Smoked Salmon Pavement/Cottage Cheesecake"}, "nl": {"comment": "Mayo Ei/Gerookte Zalm Bestrating/Cottage Cheesecake"}}, "details": "", "is_formula": true, "formula_type": "EPD"}]}, {"id": "5B727EF6", "name": "Entrées", "trans": {"en": "Starters", "nl": "Voorgerechten"}, "type": "regular", "schedule": "all", "items": [{"id": "9C4EA583", "name": "salade cesar", "price": 10.0, "comment": "", "allergens": ["soja", "fruits_coque", "moutarde", "sesame"], "diet_tags": ["vegetarien"], "photo": "", "schedule": "all", "translations": {"en": {"name": "CAESAR SALAD"}, "nl": {"name": "cesar salade"}}, "details": "", "is_formula": false, "formula_type": ""}]}, {"id": "55DA8B7B", "name": "Plats", "trans": {"en": "Main Courses", "nl": "Hoofdgerechten"}, "type": "regular", "schedule": "all", "items": [{"id": "F91C18B6", "name": "aprahé facon mamlakate", "price": 15.0, "comment": "", "allergens": ["celeri", "sesame"], "diet_tags": ["vegan"], "photo": "", "schedule": "all", "translations": {"en": {"name": "aprahé way mamlakate"}, "nl": {"name": "aprahé way mamlakaat"}}, "details": "", "is_formula": false, "formula_type": ""}]}, {"id": "EFACB88A", "name": "Desserts", "trans": {"en": "Desserts", "nl": "Desserts"}, "type": "regular", "schedule": "all", "items": [{"id": "9F407714", "name": "tchayé guepta", "price": 12.0, "comment": "", "allergens": [], "diet_tags": ["bio"], "photo": "", "schedule": "all", "translations": {"en": {"name": "tchayé guepta"}, "nl": {"name": "tchayé guepta"}}, "details": "", "is_formula": false, "formula_type": ""}]}, {"id": "606AF5DD", "name": "boissons chaudes", "trans": {"en": "Hot drinks", "nl": "WARME DRANKEN"}, "type": "regular", "schedule": "all", "items": [{"id": "517D8D75", "name": "café", "price": 1.5, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {"en": {"name": "café"}, "nl": {"name": "koffie"}}, "details": "", "is_formula": false, "formula_type": ""}, {"id": "938CBD75", "name": "thé", "price": 2.5, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {"en": {"name": "tea"}, "nl": {"name": "thee"}}, "details": "", "is_formula": false, "formula_type": ""}]}];
-const G = { en: {"Entrées": "Starters", "Entrée": "Starter", "Plats": "Main Courses", "Plat": "Main Course", "Desserts": "Desserts", "Boissons": "Drinks", "Formules du Midi": "Set Lunch Menus", "Fromages": "Cheese Selection", "Suggestions du Chef": "Chef's Specials", "Planches": "Sharing Boards", "Cocktails": "Cocktails", "Vins": "Wines", "Bières": "Beers", "Café & Infusions": "Coffee & Herbal Teas", "Entrée + Plat": "Starter + Main", "Plat + Dessert": "Main + Dessert", "Entrée + Plat + Dessert": "Starter + Main + Dessert", "Menu du moment": "Today's Menu", "Mis à jour le": "Updated on", "Service du midi": "Lunch service", "Service du soir": "Dinner service", "Actif": "Active", "Végétarien": "Vegetarian", "Vegan": "Vegan", "Sans gluten": "Gluten-free", "Sans lactose": "Lactose-free", "Sans arachides": "Peanut-free", "Halal": "Halal", "Bio": "Organic", "Gluten": "Gluten", "Crustacés": "Crustaceans", "Œufs": "Eggs", "Poisson": "Fish", "Arachides": "Peanuts", "Soja": "Soya", "Lait": "Milk", "Fruits à coque": "Tree nuts", "Céleri": "Celery", "Moutarde": "Mustard", "Sésame": "Sesame", "Sulfites": "Sulphites", "Lupin": "Lupin", "Mollusques": "Molluscs", "Filtres": "Filters", "Aucun filtre actif": "No active filter", "Allergènes": "Allergens", "Détails": "Details", "Fermer": "Close", "Tableau de bord": "Dashboard", "Scans aujourd'hui": "Scans today", "Plats les plus cliqués": "Most viewed dishes", "Aucune donnée": "No data yet", "Effacer": "Clear", "Aucun plat disponible avec ces filtres.": "No dishes available with these filters.", "Tous droits réservés.": "All rights reserved.", "Toute reproduction ou diffusion interdite sans autorisation écrite.": "Any reproduction or distribution without written authorisation is prohibited.", "Formule": "Set menu", "Formules": "Set menus", "Nouvelle catégorie": "New category"}, nl: {"Entrées": "Voorgerechten", "Entrée": "Voorgerecht", "Plats": "Hoofdgerechten", "Plat": "Hoofdgerecht", "Desserts": "Desserts", "Boissons": "Dranken", "Formules du Midi": "Lunchmenu's", "Fromages": "Kaasplank", "Suggestions du Chef": "Aanbevelingen van de Chef", "Planches": "Broodplanken", "Cocktails": "Cocktails", "Vins": "Wijnen", "Bières": "Bieren", "Café & Infusions": "Koffie & Kruidenthee", "Entrée + Plat": "Voorgerecht + Hoofdgerecht", "Plat + Dessert": "Hoofdgerecht + Dessert", "Entrée + Plat + Dessert": "Voorgerecht + Hoofdgerecht + Dessert", "Menu du moment": "Menu van de dag", "Mis à jour le": "Bijgewerkt op", "Service du midi": "Lunchservice", "Service du soir": "Dinerservice", "Actif": "Actief", "Végétarien": "Vegetarisch", "Vegan": "Veganistisch", "Sans gluten": "Glutenvrij", "Sans lactose": "Lactosevrij", "Sans arachides": "Zonder pinda's", "Halal": "Halal", "Bio": "Biologisch", "Gluten": "Gluten", "Crustacés": "Schaaldieren", "Œufs": "Eieren", "Poisson": "Vis", "Arachides": "Pinda's", "Soja": "Soja", "Lait": "Melk", "Fruits à coque": "Noten", "Céleri": "Selderij", "Moutarde": "Mosterd", "Sésame": "Sesam", "Sulfites": "Sulfieten", "Lupin": "Lupine", "Mollusques": "Weekdieren", "Filtres": "Filters", "Aucun filtre actif": "Geen actief filter", "Allergènes": "Allergenen", "Détails": "Details", "Fermer": "Sluiten", "Tableau de bord": "Dashboard", "Scans aujourd'hui": "Scans vandaag", "Plats les plus cliqués": "Meest bekeken gerechten", "Aucune donnée": "Nog geen gegevens", "Effacer": "Wissen", "Aucun plat disponible avec ces filtres.": "Geen gerechten beschikbaar met deze filters.", "Tous droits réservés.": "Alle rechten voorbehouden.", "Toute reproduction ou diffusion interdite sans autorisation écrite.": "Elke reproductie of verspreiding zonder schriftelijke toestemming is verboden.", "Formule": "Menu", "Formules": "Menu's", "Nouvelle catégorie": "Nieuwe categorie"} };
+const MENU = [{"id": "909C509A", "name": "Aujourd'hui", "trans": {}, "type": "regular", "schedule": "all", "parent_id": null, "items": []}, {"id": "0D72C75C", "name": "Formule du midi", "trans": {}, "type": "formula", "schedule": "midi", "parent_id": "909C509A", "items": [{"id": "28C9C4CF", "name": "Entrée + Plat", "price": 16.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "EP"}, {"id": "C56D89A8", "name": "Plat + Dessert", "price": 16.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "PD"}, {"id": "CD727E60", "name": "Entrée + Plat + Dessert", "price": 19.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": true, "formula_type": "EPD"}]}, {"id": "EB2F44A2", "name": "Entrées", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "909C509A", "items": [{"id": "535A9E10", "name": "Taboulé maison", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}, {"id": "E4216F2D", "name": "Assiete de charcuterie", "price": 7.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}, {"id": "F8D1B678", "name": "Oeuf mayonnaise", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}]}, {"id": "7D4713DB", "name": "Plats", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "909C509A", "items": [{"id": "45819F1C", "name": "Coeur de faux filet", "price": 19.0, "comment": "sauces aux poivres\n180 grammes", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}]}, {"id": "81671D29", "name": "Dessert", "trans": {}, "type": "regular", "schedule": "all", "parent_id": "909C509A", "items": [{"id": "0709E692", "name": "Café gourmand / Thé gourmand", "price": 8.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}, {"id": "FC5685D0", "name": "Crème brulée à la vanille", "price": 6.0, "comment": "", "allergens": [], "diet_tags": [], "photo": "", "schedule": "all", "translations": {}, "details": "", "is_formula": false, "formula_type": ""}]}];
+const G = {};
 const ALLERGEN_L = {"gluten": "Gluten", "crustaces": "Crustacés", "oeufs": "Œufs", "poisson": "Poisson", "arachides": "Arachides", "soja": "Soja", "lait": "Lait", "fruits_coque": "Fruits à coque", "celeri": "Céleri", "moutarde": "Moutarde", "sesame": "Sésame", "sulfites": "Sulfites", "lupin": "Lupin", "mollusques": "Mollusques"};
 const DIET_L     = {"vegetarien": "Végétarien", "vegan": "Vegan", "sans_gluten": "Sans gluten", "sans_lactose": "Sans lactose", "sans_arachides": "Sans arachides", "halal": "Halal", "cacher": "Cacher", "bio": "Bio"};
-const FORMULA_L  = { en: {"EP": "Starter + Main", "PD": "Main + Dessert", "EPD": "Starter + Main + Dessert"}, nl: {"EP": "Voorgerecht + Hoofdgerecht", "PD": "Hoofdgerecht + Dessert", "EPD": "Voorgerecht + Hoofdgerecht + Dessert"} };
+const FORMULA_L  = {};
 const FORMULA_FR = { EP:'Entrée + Plat', PD:'Plat + Dessert', EPD:'Entrée + Plat + Dessert' };
+const ENABLED_LANGS = [];
+const LANG_NAMES = {fr:'FR',en:'EN',nl:'NL',tr:'TR',zh:'中文'};
 
 // ── DISPLAY FLAGS ────────────────────────────────────────────────────
 const SHOW_ALLERGENS = false;
@@ -168,6 +174,21 @@ const SHOW_DIET_TAGS  = false;
 let lang      = 'fr';
 let filters   = new Set();
 let activeTab = '';
+
+// ── LANG BAR ─────────────────────────────────────────────────────────
+function buildLangBar() {
+  const bar = document.getElementById('lang-bar');
+  if (!ENABLED_LANGS.length) { bar.style.display='none'; return; }
+  bar.style.display = 'flex';
+  const all = ['fr', ...ENABLED_LANGS];
+  bar.innerHTML = all.map(l =>
+    `<button class="lang-btn${l==='fr'?' active':''}" id="btn-${l}" onclick="setLang('${l}')">${LANG_NAMES[l]||l.toUpperCase()}</button>`
+  ).join('');
+}
+
+// ── MENU TREE HELPERS ────────────────────────────────────────────────
+function topLevelCats() { return MENU.filter(c => !c.parent_id); }
+function getChildren(pid) { return MENU.filter(c => c.parent_id === pid); }
 
 // ── SCHEDULE ────────────────────────────────────────────────────────
 function getService() {
@@ -227,11 +248,11 @@ function buildFilterBar() {
 function buildTabs() {
   const nav = document.getElementById('tab-nav');
   const svc = getService();
-  const visible = MENU.filter(c => shouldShowCat(c, svc));
-  nav.innerHTML = visible.map((c,i) =>
+  const roots = topLevelCats().filter(c => shouldShowCat(c, svc));
+  nav.innerHTML = roots.map((c,i) =>
     `<button class="tab-btn${i===0?' active':''}" data-cat="${c.id}" onclick="switchTab('${c.id}')">${trCat(c)}</button>`
   ).join('');
-  if (visible.length) activeTab = visible[0].id;
+  if (roots.length) activeTab = roots[0].id;
 }
 
 function trCat(cat) {
@@ -247,25 +268,43 @@ function shouldShowCat(cat, svc) {
 function buildSections() {
   const content = document.getElementById('menu-content');
   const svc = getService();
-  content.innerHTML = MENU.filter(c => shouldShowCat(c, svc)).map((cat, ci) => {
-    const items = cat.items.map(item => {
-      const sched = item.schedule || 'all';
-      if (sched !== 'all' && sched !== svc) return '';
-      return item.is_formula ? renderFormula(item) : renderDish(item);
-    }).join('');
+  const roots = topLevelCats().filter(c => shouldShowCat(c, svc));
+  content.innerHTML = roots.map((cat, ci) => {
+    const kids = getChildren(cat.id).filter(c=>shouldShowCat(c,svc))
+                   .map(c=>renderSubSection(c,svc,1)).join('');
     return `<section class="cat-section${ci===0?' active':''}" id="sec-${cat.id}">
       <div class="sec-title" id="sectitle-${cat.id}">${trCat(cat)}</div>
-      ${items || '<div class="empty-msg">—</div>'}
+      ${renderCatItems(cat,svc)}${kids}
       <div class="empty-msg" id="empty-${cat.id}" style="display:none">${tr('Aucun plat disponible avec ces filtres.')}</div>
     </section>`;
   }).join('');
 }
 
+function renderSubSection(cat, svc, depth) {
+  const titleCls = depth===1 ? 'sub-title-1' : 'sub-title-2';
+  const kids = getChildren(cat.id).filter(c=>shouldShowCat(c,svc))
+                 .map(c=>renderSubSection(c,svc,depth+1)).join('');
+  return `<div class="sub-section" id="subsec-${cat.id}">
+    <div class="${titleCls}" id="sectitle-${cat.id}">${trCat(cat)}</div>
+    ${renderCatItems(cat,svc)}${kids}
+  </div>`;
+}
+
+function renderCatItems(cat, svc) {
+  if (!cat.items||!cat.items.length) return '';
+  return cat.items.map(item => {
+    const sched = item.schedule||'all';
+    if (sched!=='all'&&sched!==svc) return '';
+    return item.is_formula ? renderFormula(item) : renderDish(item);
+  }).join('');
+}
+
+
 function renderDish(item) {
   const al = (item.allergens || []).join(' ');
   const dt = (item.diet_tags || []).join(' ');
   const hasPic = item.photo && item.photo.length > 10;
-  const pic = hasPic ? `<img class="dish-photo" src="${item.photo}" alt="" loading="lazy">` : '';
+  const pic = hasPic ? `<div class="dish-photo-wrap"><img class="dish-photo" src="${item.photo}" alt="" loading="lazy"></div>` : '';
   const name = trItem(item,'name');
   const desc = trItem(item,'comment');
   const badges = [
@@ -313,7 +352,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 29 mai 2026 à 19h28';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 21h28';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
@@ -327,17 +366,17 @@ function setLang(l) {
   refreshScheduleBadge();
   buildFilterBar();
   updateFooter();
+  // Update all section titles (top-level and sub-sections)
+  MENU.forEach(cat => {
+    const el = document.getElementById('sectitle-' + cat.id);
+    if (el) el.textContent = trCat(cat);
+  });
   document.querySelectorAll('.tab-btn').forEach(btn=>{
     const cat = MENU.find(c=>c.id===btn.dataset.cat);
     if (cat) btn.textContent = trCat(cat);
   });
-  document.querySelectorAll('.cat-section').forEach(sec=>{
-    const cid = sec.id.replace('sec-','');
-    const cat = MENU.find(c=>c.id===cid);
-    const t = sec.querySelector('[id^=sectitle-]');
-    if (cat && t) t.textContent = trCat(cat);
-    const em = document.getElementById('empty-'+cid);
-    if (em) em.textContent = tr('Aucun plat disponible avec ces filtres.');
+  document.querySelectorAll('[id^=empty-]').forEach(em=>{
+    em.textContent = tr('Aucun plat disponible avec ces filtres.');
   });
   document.querySelectorAll('.dish-card,.formula-card').forEach(card=>{
     const id = card.dataset.id;
@@ -355,7 +394,7 @@ function setLang(l) {
 }
 
 function findItem(id) {
-  for (const cat of MENU) for (const it of cat.items) if (it.id===id) return it;
+  for (const cat of MENU) for (const it of (cat.items||[])) if (it.id===id) return it;
   return null;
 }
 
@@ -473,6 +512,7 @@ function escHtml(s) {
 
 // ── INIT ─────────────────────────────────────────────────────────────
 (function init() {
+  buildLangBar();
   refreshScheduleBadge();
   buildFilterBar();
   buildTabs();
