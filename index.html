@@ -4,20 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta name="theme-color" content="#1B2B45">
-<title>Le bistro de Diane — Menu</title>
+<title>Le bistrot de Diane — Menu</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@300;400&display=swap');
-:root{--bg:#1C0610;--bg2:#280C1A;--text:#E0CCA0;--t2:#906040;--hd:#F0E0B0;--ac:#C89020;--br:#3A1428;--ft:#604030;--fd:'Libre Baskerville',serif;--fb:'Libre Franklin',sans-serif}
-body{font-weight:300}
-h1{font-size:2.7em;letter-spacing:3px}
-.st{font-size:1.3em;letter-spacing:4px;background:#1C0610}
-.hd::before,.hd::after{opacity:.5}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,700;0,900;1,200&display=swap');
+:root{--bg:#FFFFFF;--bg2:#F4F4F4;--text:#1A1A1A;--t2:#666666;--hd:#111111;--ac:#CC1A1A;--br:#E0E0E0;--ft:#999999;--fd:'Montserrat',sans-serif;--fb:'Montserrat',sans-serif}
+body{font-weight:200}
+h1{font-weight:900;letter-spacing:6px;font-size:2.9em}
+.tg{font-family:'Montserrat',sans-serif;font-style:normal;font-weight:200;letter-spacing:8px;font-size:.78em;text-transform:uppercase}
+.orn{letter-spacing:18px;font-size:.8em}
+.st{font-weight:700;letter-spacing:7px;font-size:1.15em;background:#fff}
+.in{font-family:'Montserrat',sans-serif;font-weight:200}
+.fn{font-family:'Montserrat',sans-serif;font-weight:700}
+.hd::before,.hd::after{opacity:.2}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;min-height:100vh;overflow-x:hidden}
 /* ── SUB-SECTIONS ── */
 .sub-section{padding:0 0 4px}
-.sub-title-1{font-family:var(--fd);font-size:1.05em;font-weight:600;color:var(--ac);padding:14px 16px 8px 20px;border-left:3px solid var(--ac);margin:8px 16px 0 16px}
-.sub-title-2{font-family:var(--fd);font-size:.9em;font-weight:500;color:var(--t2);padding:10px 16px 6px 32px;font-style:italic}
+.sub-title-1{font-family:var(--fd);font-size:1.05em;font-weight:600;color:var(--ac);padding:14px 16px 8px 16px;margin:8px 16px 0 16px;text-align:center}
+.sub-title-2{font-family:var(--fd);font-size:.9em;font-weight:500;color:var(--t2);padding:10px 16px 6px 16px;font-style:italic;text-align:center}
 
 /* ── LANG BAR ── */
 #lang-bar{background:var(--hd);display:flex;justify-content:flex-end;align-items:center;padding:8px 16px;gap:4px;position:sticky;top:0;z-index:100}
@@ -54,7 +58,7 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 /* ── SECTIONS ── */
 .cat-section{display:none;padding:0 0 32px}
 .cat-section.active{display:block}
-.sec-title{font-family:var(--fd);font-size:1.3em;font-weight:600;color:var(--hd);padding:20px 16px 10px;letter-spacing:1px}
+.sec-title{font-family:var(--fd);font-size:1.3em;font-weight:600;color:var(--hd);padding:20px 16px 10px;letter-spacing:1px;text-align:center}
 .empty-msg{text-align:center;color:var(--ft);font-style:italic;padding:32px 16px;font-size:.9em}
 
 /* ── DISH CARD ── */
@@ -125,7 +129,7 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 <header>
   
   <span class="orn">✦ ✦ ✦</span>
-  <h1>Le bistro de Diane</h1>
+  <h1>Le bistrot de Diane</h1>
   <p class="tagline" id="tagline">Menu du moment</p>
   <div id="schedule-badge"></div>
 </header>
@@ -362,7 +366,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 21h55';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 31 mai 2026 à 21h59';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
