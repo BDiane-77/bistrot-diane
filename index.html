@@ -12,10 +12,13 @@
 body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;min-height:100vh;overflow-x:hidden}
 /* ── SUB-SECTIONS ── */
 .sub-section{padding:0 0 8px}
+.sub-section-deep{padding-left:16px;border-left:2px solid var(--br);margin-left:8px;opacity:.95}
 .sub-title-1{font-family:var(--fd);font-size:1.05em;font-weight:600;color:var(--ac);padding:10px 16px 10px;margin:22px 0 8px;display:flex;align-items:center;gap:12px}
 .sub-title-1::before,.sub-title-1::after{content:'';flex:1;height:1px;background:var(--br);opacity:.7}
-.sub-title-2{font-family:var(--fd);font-size:.9em;font-weight:500;color:var(--t2);padding:8px 16px 8px;margin:14px 0 6px;font-style:italic;display:flex;align-items:center;gap:10px}
-.sub-title-2::before,.sub-title-2::after{content:'';flex:1;height:1px;background:var(--br);opacity:.5}
+.sub-title-2{font-family:var(--fd);font-size:.88em;font-weight:500;color:var(--t2);padding:6px 0 4px 0;margin:12px 0 4px;font-style:italic;display:block;text-align:left;position:relative;padding-left:14px}
+.sub-title-2::before{content:'›';position:absolute;left:0;color:var(--ac);font-style:normal;font-size:1.1em;line-height:1}
+.sub-title-3{font-family:var(--fd);font-size:.8em;font-weight:400;color:var(--t2);padding:4px 0 2px 0;margin:8px 0 2px;font-style:italic;display:block;text-align:left;position:relative;padding-left:14px;opacity:.8}
+.sub-title-3::before{content:'·';position:absolute;left:2px;color:var(--ac);font-style:normal;font-size:1.3em;line-height:.9}
 
 /* ── LANG BAR ── */
 #lang-bar{background:var(--hd);display:flex;justify-content:flex-end;align-items:center;padding:8px 16px;gap:4px;position:sticky;top:0;z-index:100}
@@ -283,10 +286,11 @@ function buildSections() {
 }
 
 function renderSubSection(cat, svc, depth) {
-  const titleCls = depth===1 ? 'sub-title-1' : 'sub-title-2';
+  const titleCls = depth===1 ? 'sub-title-1' : depth===2 ? 'sub-title-2' : 'sub-title-3';
+  const secCls   = depth>=2  ? 'sub-section sub-section-deep' : 'sub-section';
   const kids = getChildren(cat.id).filter(c=>shouldShowCat(c,svc))
                  .map(c=>renderSubSection(c,svc,depth+1)).join('');
-  return `<div class="sub-section" id="subsec-${cat.id}">
+  return `<div class="${secCls}" id="subsec-${cat.id}">
     <div class="${titleCls}" id="sectitle-${cat.id}">${trCat(cat)}</div>
     ${renderCatItems(cat,svc)}${kids}
   </div>`;
@@ -374,7 +378,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 1 juin 2026 à 04h12';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 1 juin 2026 à 04h19';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
