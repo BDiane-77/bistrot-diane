@@ -12,16 +12,11 @@
 body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;min-height:100vh;overflow-x:hidden}
 /* ── SUB-SECTIONS ── */
 .sub-section{padding:0 0 4px}
-.sub-section-deep{position:relative;padding-left:16px}
-/* Wrapper : pas de border-left global, chaque item dessine son propre segment */
+.sub-section-deep{padding-left:16px}
+/* Wrapper des frères — indentation, pas de bordure globale */
 .sub-children{margin-left:14px;padding:0}
-/* Trait vertical : pleine hauteur pour les non-derniers (connecte au suivant) */
-.sub-section-deep:not(:last-child)::before{content:'';position:absolute;left:0;top:0;bottom:0;border-left:1.5px solid var(--br)}
-/* Dernier enfant : forme en L — trait s'arrête au milieu du titre */
-.sub-section-deep:last-child::before{content:'';position:absolute;left:0;top:0;height:18px;border-left:1.5px solid var(--br)}
-/* Connecteur horizontal depuis le trait vertical vers le titre */
-.sub-title-2,.sub-title-3{position:relative}
-.sub-title-2::before,.sub-title-3::before{content:'';position:absolute;left:-16px;top:50%;width:14px;height:1.5px;background:var(--br)}
+/* Chaque bloc titre+items a SA propre bordure gauche — s'arrête avant les sous-cats */
+.sub-header{border-left:1.5px solid var(--br);padding-left:12px;padding-bottom:4px;margin-bottom:4px}
 .sub-title-1{font-family:var(--fd);font-size:1.05em;font-weight:600;color:var(--ac);padding:10px 16px 10px;margin:22px 0 8px;display:flex;align-items:center;gap:12px}
 .sub-title-1::before,.sub-title-1::after{content:'';flex:1;height:1px;background:var(--br);opacity:.7}
 .sub-title-2{font-family:var(--fd);font-size:.88em;font-weight:500;color:var(--t2);padding:6px 0 4px 0;margin:6px 0 4px;font-style:italic;display:block}
@@ -299,6 +294,15 @@ function renderSubSection(cat, svc, depth) {
   const kidsHtml  = childCats.length
     ? `<div class="sub-children">${childCats.map(c=>renderSubSection(c,svc,depth+1)).join('')}</div>`
     : '';
+  if (depth >= 2) {
+    /* sub-header porte la bordure gauche : s'arrête avant les sous-cats */
+    return `<div class="${secCls}" id="subsec-${cat.id}">
+      <div class="sub-header">
+        <div class="${titleCls}" id="sectitle-${cat.id}">${trCat(cat)}</div>
+        ${renderCatItems(cat,svc)}
+      </div>${kidsHtml}
+    </div>`;
+  }
   return `<div class="${secCls}" id="subsec-${cat.id}">
     <div class="${titleCls}" id="sectitle-${cat.id}">${trCat(cat)}</div>
     ${renderCatItems(cat,svc)}${kidsHtml}
@@ -387,7 +391,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 1 juin 2026 à 04h51';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 1 juin 2026 à 05h07';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
