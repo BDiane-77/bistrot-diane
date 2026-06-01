@@ -10,30 +10,30 @@
 :root{--navy:#1B2B45;--gold:#C9A96E;--gold2:#9B7A2E;--bg:#FAF8F3;--card:#fff;
   --txt:#1C1C2A;--txt2:#6A6A7A;--txt3:#9A8B77;--bord:#DDD5C6;--grn:#2A7A52;
   --red:#B83232;--ff-head:'Georgia',serif;--ff-body:'Segoe UI',sans-serif}
-body{background:var(--bg);color:var(--txt);font-family:var(--ff-body);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
 #pin-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;width:100%;padding:24px}
-#pin-box{background:var(--card);border-radius:16px;padding:40px 36px;box-shadow:0 4px 24px rgba(0,0,0,.1);max-width:340px;width:100%;text-align:center}
-#pin-box h1{font-family:var(--ff-head);font-size:1.5em;color:var(--navy);margin-bottom:8px}
-#pin-box p{color:var(--txt2);font-size:.88em;margin-bottom:24px}
-#pin-input{width:100%;padding:14px;font-size:1.2em;text-align:center;letter-spacing:8px;border:2px solid var(--bord);border-radius:8px;font-family:monospace;outline:none;transition:border .2s}
-#pin-input:focus{border-color:var(--gold)}
-#pin-btn{margin-top:16px;width:100%;padding:14px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:1em;font-weight:600;cursor:pointer;transition:background .2s}
+#pin-box{background:var(--bg);border-radius:16px;padding:40px 36px;box-shadow:0 4px 24px rgba(0,0,0,.1);max-width:340px;width:100%;text-align:center}
+#pin-box h1{font-family:var(--fd);font-size:1.5em;color:var(--hd);margin-bottom:8px}
+#pin-box p{color:var(--t2);font-size:.88em;margin-bottom:24px}
+#pin-input{width:100%;padding:14px;font-size:1.2em;text-align:center;letter-spacing:8px;border:2px solid var(--br);border-radius:8px;font-family:monospace;outline:none;transition:border .2s}
+#pin-input:focus{border-color:var(--ac)}
+#pin-btn{margin-top:16px;width:100%;padding:14px;background:var(--hd);color:#fff;border:none;border-radius:8px;font-size:1em;font-weight:600;cursor:pointer;transition:background .2s}
 #pin-btn:hover{background:#243658}
 #pin-err{color:var(--red);font-size:.85em;margin-top:10px;min-height:20px}
 #dashboard{display:none;width:100%;max-width:700px;padding:24px 20px 60px}
-.db-header{background:var(--navy);color:#fff;padding:24px 28px;border-radius:12px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center}
-.db-header h1{font-family:var(--ff-head);font-size:1.4em;font-weight:700}
+.db-header{background:var(--hd);color:#fff;padding:24px 28px;border-radius:12px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center}
+.db-header h1{font-family:var(--fd);font-size:1.4em;font-weight:700}
 .db-header .db-date{font-size:.78em;opacity:.6}
-.card{background:var(--card);border-radius:12px;padding:24px;margin-bottom:18px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.card-title{font-family:var(--ff-head);font-size:1.05em;font-weight:700;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:8px}
-.stat-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--bord);font-size:.9em}
+.card{background:var(--bg);border-radius:12px;padding:24px;margin-bottom:18px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.card-title{font-family:var(--fd);font-size:1.05em;font-weight:700;color:var(--hd);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--ac);display:flex;align-items:center;gap:8px}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--br);font-size:.9em}
 .stat-row:last-child{border-bottom:none}
-.stat-n{color:var(--navy);font-weight:500}
-.stat-v{font-weight:700;color:var(--gold2)}
+.stat-n{color:var(--hd);font-weight:500}
+.stat-v{font-weight:700;color:var(--ac)}
 .bar-wrap{margin-top:5px;background:#F0EBE0;border-radius:4px;height:6px;width:100%}
-.bar-fill{height:6px;background:var(--gold);border-radius:4px;transition:width .6s ease}
+.bar-fill{height:6px;background:var(--ac);border-radius:4px;transition:width .6s ease}
 .stat-col{display:flex;flex-direction:column;width:100%}
-.empty{color:var(--txt3);font-style:italic;font-size:.88em;text-align:center;padding:16px 0}
+.empty{color:var(--ft);font-style:italic;font-size:.88em;text-align:center;padding:16px 0}
 .total-badge{display:inline-block;background:#EFF6FF;color:#1E3A8A;border-radius:20px;padding:4px 14px;font-size:.78em;font-weight:600;margin-left:10px}
 .reset-btn{margin-top:18px;padding:10px 20px;background:#FEF2F2;color:var(--red);border:1px solid #FECACA;border-radius:8px;cursor:pointer;font-size:.85em;font-weight:600;transition:background .2s}
 .reset-btn:hover{background:#FEE2E2}
@@ -60,7 +60,7 @@ body{background:var(--bg);color:var(--txt);font-family:var(--ff-body);min-height
   <div class="db-header">
     <div>
       <h1>📊 Tableau de bord</h1>
-      <div class="db-date">Le bistrot de Diane · Mis à jour le 29 mai 2026 à 17h29</div>
+      <div class="db-date">Le bistrot de Diane · Mis à jour le 1 juin 2026 à 14h48</div>
     </div>
     <button class="logout-btn" onclick="logout()">Déconnexion</button>
   </div>
@@ -85,8 +85,8 @@ body{background:var(--bg);color:var(--txt);font-family:var(--ff-body);min-height
 </div>
 
 <script>
-const CORRECT_PIN = "1234";
-const ITEMS = {"289DA759": "Entrée + Plat", "1CC4A37E": "Plat + Dessert", "451074CE": "Entrée + Plat + Dessert", "9C4EA583": "salade cesar", "F91C18B6": "aprahé facon mamlakate", "9F407714": "tchayé guepta", "517D8D75": "café", "938CBD75": "thé"};
+const CORRECT_PIN = "000000";
+const ITEMS = {"28C9C4CF": "Entrée + Plat ou Plat + Dessert", "CD727E60": "Entrée + Plat + Dessert", "F8D1B678": "Tomate mozzarella", "535A9E10": "Taboulé maison", "E4216F2D": "Assiete de charcuterie", "45819F1C": "Coeur de faux filet", "0709E692": "Café gourmand / Thé gourmand", "FC5685D0": "Crème brulée à la vanille", "CCA30528": "Coca-Cola", "4D97C21D": "Coca Zéro", "3FDF881B": "Café", "B8EF2ABB": "thé", "089C4E55": "Jack Daniel 4 cl", "4AF00695": "Chivas 4 cl", "4011C267": "Diplomatico", "A112EE5A": "Saint Emilion", "FFC167C1": "Côtes du Rhône"};
 
 function escHtml(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
