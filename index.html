@@ -228,7 +228,8 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
   /* Dish card : photo plus petite + prix autorisé à passer à la ligne */
   .dish-card{padding:12px 12px;gap:10px}
   .dish-photo-wrap{width:68px;height:68px;flex-shrink:0}
-  .dish-name-row{flex-wrap:wrap;gap:4px}
+  .dish-name-row{flex-wrap:wrap;gap:4px;align-items:center}
+  .dt{align-self:center;margin-bottom:0;flex:1 0 20px;min-width:20px}
   .dish-name{font-size:.95em}
   .dish-right{flex-direction:row;flex-wrap:wrap;justify-content:flex-start;gap:4px 8px;align-items:center}
   .dish-price{font-size:.95em}
@@ -837,7 +838,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 8 juin 2026 à 19h19';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 8 juin 2026 à 19h29';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
