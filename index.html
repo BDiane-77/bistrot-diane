@@ -2,16 +2,10 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#1B2B45">
 <title>Le bistrot de Diane — Menu</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@300;400&display=swap');
-:root{--bg:#1C0610;--bg2:#280C1A;--text:#E0CCA0;--t2:#906040;--hd:#F0E0B0;--ac:#C89020;--br:#3A1428;--ft:#604030;--fd:'Libre Baskerville',serif;--fb:'Libre Franklin',sans-serif}
-body{font-weight:300}
-h1{font-size:2.7em;letter-spacing:3px}
-.st{font-size:1.3em;letter-spacing:4px;background:#1C0610}
-.hd::before,.hd::after{opacity:.5}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;min-height:100vh;overflow-x:hidden}
 /* ── SUB-SECTIONS ── */
@@ -53,10 +47,13 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 #filter-clear{display:inline-flex;align-items:center;padding:6px 10px;border-radius:20px;border:1.5px solid #ECC;background:#FFF5F5;color:var(--red);font-size:.75em;font-weight:500;cursor:pointer;transition:all .2s;display:none}
 
 /* ── TAB NAV ── */
-#tab-nav{background:var(--bg);border-bottom:2px solid var(--br);overflow-x:auto;overflow-y:hidden;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;position:sticky;top:41px;z-index:90}
+#tab-nav-wrap{position:sticky;top:41px;z-index:90;background:var(--bg)}
+#tab-nav{background:var(--bg);border-bottom:2px solid var(--br);overflow-x:auto;overflow-y:hidden;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex}
 #tab-nav::-webkit-scrollbar{display:none}
 .tab-btn{flex-shrink:0;padding:12px 20px;border:none;background:none;color:var(--t2);font-family:var(--fd);font-size:.88em;font-weight:600;letter-spacing:.5px;cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:all .2s;white-space:nowrap}
 .tab-btn.active{color:var(--hd);border-bottom-color:var(--ac)}
+/* Indicateur de scroll des onglets */
+#tab-nav-wrap::after{content:'';position:absolute;right:0;top:0;bottom:2px;width:32px;background:linear-gradient(to right,transparent,var(--bg));pointer-events:none;opacity:.9}
 
 /* ── SECTIONS ── */
 .cat-section{display:none;padding:0 0 32px}
@@ -89,18 +86,35 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 .var-label{display:table-cell;color:var(--t2);font-size:.78em;padding:1px 10px 1px 0;white-space:nowrap;text-align:left;font-style:italic}
 .var-price{display:table-cell;font-family:var(--fd);font-weight:700;color:var(--hd);font-size:.88em;text-align:right;white-space:nowrap}
 /* ── TABLE VARIANTES ALIGNÉES (carte des vins) ── */
-.vt-wrap{width:100%;overflow-x:auto}
+.vt-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
 .vt-header{display:flex;align-items:flex-end;padding:8px 16px 6px;border-bottom:2px solid var(--ac)}
-.vt-hname{flex:1;min-width:0;display:flex;align-items:baseline;gap:6px;overflow:hidden}
+.vt-hname{flex:1;min-width:90px;display:flex;align-items:baseline;gap:6px;overflow:hidden}
 .vt-hname-txt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--fd);color:var(--hd);font-weight:600;font-size:.95em;flex:0 1 auto;min-width:0}
-.vt-hname-dt{flex:1;border-bottom:1px dotted var(--ac);opacity:.5;align-self:flex-end;margin-bottom:3px;min-width:16px;flex-shrink:0}
-.vt-hcol{width:80px;text-align:right;font-size:.78em;color:var(--ac);font-style:italic;font-weight:700;padding-right:2px;white-space:nowrap}
+.vt-hname-dt{flex:1;border-bottom:1px dotted var(--ac);opacity:.5;align-self:flex-end;margin-bottom:3px;min-width:8px;flex-shrink:0}
+.vt-hcol{width:72px;flex-shrink:0;text-align:right;font-size:.78em;color:var(--ac);font-style:italic;font-weight:700;padding-right:2px;white-space:nowrap}
 .vt-row{display:flex;align-items:baseline;padding:9px 16px;cursor:default;transition:background .15s}
 .vt-row.vt-click{cursor:pointer}
 .vt-row:hover{background:var(--bg2)}
-.vt-row .vt-hcol{width:80px;text-align:right;font-family:var(--fd);font-weight:700;color:var(--hd);font-size:.9em;padding-right:2px;white-space:nowrap}
-.vt-empty{color:var(--t2);opacity:.35;font-weight:400}
-.dish-name-row{display:flex;align-items:baseline;gap:6px;flex-wrap:nowrap}
+.vt-row .vt-hcol{width:72px;flex-shrink:0;text-align:right;font-family:var(--fd);font-weight:700;color:var(--hd);font-size:.9em;padding-right:2px;white-space:nowrap}
+.vt-empty{color:var(--t2);opacity:.35;font-weight:400;text-align:center}
+.vt-row .vt-empty{text-align:center}
+/* Responsive vins ≤ 540px : colonnes réduites + noms non tronqués */
+@media(max-width:540px){
+  .vt-hcol{width:46px;font-size:.68em;padding-right:1px}
+  .vt-row .vt-hcol{width:46px;font-size:.78em;padding-right:1px}
+  .vt-hname{min-width:0;flex:1;overflow:visible;align-items:center}
+  .vt-hname-txt{white-space:normal;overflow:visible;text-overflow:clip;font-size:.88em;line-height:1.25;word-break:break-word;flex-shrink:1}
+  .vt-hname-dt{flex:1 0 20px;min-width:20px;margin-bottom:0;align-self:center}
+  .vt-row{padding:8px 10px;align-items:center}
+  .vt-header{padding:8px 10px 6px}
+}
+/* Très petits écrans ≤ 360px */
+@media(max-width:360px){
+  .vt-hcol{width:38px;font-size:.62em}
+  .vt-row .vt-hcol{width:38px;font-size:.72em}
+  .vt-hname-txt{font-size:.82em}
+}
+.dish-name-row{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
 .dish-weight{font-size:.78em;color:var(--t2);font-weight:500;white-space:nowrap}
 .dt{flex:1;border-bottom:1px dotted var(--ac);opacity:.4;min-width:14px;align-self:flex-end;margin-bottom:3px}
 .dish-arrow{color:var(--ac);font-size:1.1em;opacity:.6}
@@ -115,6 +129,15 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 .formula-price{font-family:var(--fd);font-weight:700;color:var(--ac);font-size:1em;white-space:nowrap}
 .formula-type{font-size:.78em;color:var(--ac);font-style:italic;margin-bottom:3px}
 .formula-desc{font-size:.8em;color:var(--ft);font-style:italic;margin-bottom:8px}
+/* ── CARTE FORMULE (.fc) ── */
+.fc{background:var(--bg2);border:1px solid var(--br);border-left:3px solid var(--ac);padding:16px 20px;margin:10px 0;border-radius:3px}
+.fh{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.fc .fn{font-family:var(--fd);font-size:.97em;font-weight:600;color:var(--hd)}
+.fc .fp{font-weight:700;color:var(--ac);white-space:nowrap;font-size:.93em}
+.fd{font-style:italic;color:var(--t2);font-size:.84em;margin-top:5px}
+.fco{font-style:italic;color:var(--t2);font-size:.81em;margin-top:6px}
+.fc.hidden{display:none!important}
+.fc.dimmed{opacity:.35}
 .formula-sections{margin-top:10px;display:flex;flex-direction:column;gap:8px}
 .formula-sec{background:var(--bg);border-radius:3px;padding:8px 12px;border-left:2px solid var(--ac)}
 .formula-sec-hd{font-family:var(--fd);font-size:.75em;font-weight:700;color:var(--ac);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
@@ -152,6 +175,7 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 /* ── TEXTE LIBRE ── */
 .text-block{padding:10px 16px 4px;margin:0 0 2px}
 .text-block p{font-size:.92em;color:var(--text);line-height:1.7;margin:0 0 10px;padding:0}
+.text-block em{font-style:italic}.text-block strong{font-weight:700}.text-block u{text-decoration:underline}
 /* ── DETAIL MODAL ── */
 #detail-modal{position:fixed;inset:0;z-index:500;display:none;align-items:flex-end}
 #detail-modal.open{display:flex}
@@ -174,6 +198,13 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 
 /* admin panel supprimé — accessible via admin.html séparé */
 
+/* ── LIEN SITE OFFICIEL (header) ── */
+.header-website{display:inline-block;margin-top:10px;color:var(--ac);font-size:.78em;letter-spacing:.5px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--ac);opacity:.8;transition:opacity .2s}
+.header-website:hover{opacity:1}
+/* ── BOUTON AVIS GOOGLE (footer) ── */
+.review-btn{display:inline-flex;align-items:center;gap:8px;margin:14px auto 4px;padding:11px 24px;background:var(--ac);color:#fff;border-radius:24px;font-size:.82em;font-weight:600;letter-spacing:.4px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.18);transition:opacity .2s,transform .15s}
+.review-btn:hover{opacity:.88;transform:translateY(-1px)}
+.review-stars{font-size:1.1em;letter-spacing:1px;color:#FFD700}
 /* ── FOOTER ── */
 footer{text-align:center;padding:28px 16px;border-top:1px solid var(--br);color:var(--ft);font-size:.72em;letter-spacing:1px;margin-top:8px}
 footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
@@ -181,6 +212,84 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 /* ── ANIMATIONS ── */
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+
+/* ── RESPONSIVE MOBILE ─────────────────────────────────── */
+/* Téléphones ≤ 480px (portrait) */
+@media(max-width:480px){
+  /* Header */
+  header{padding:24px 14px 18px}
+  h1{letter-spacing:2px;font-size:clamp(1.3em,7vw,2em)}
+  .header-logo{width:80px;height:80px}
+  /* Tabs */
+  .tab-btn{padding:10px 13px;font-size:.82em;letter-spacing:0}
+  /* Sections */
+  .sec-title{font-size:1.15em;padding:16px 12px 8px}
+  .sub-title-1{font-size:.95em;padding:8px 12px;margin:16px 0 6px}
+  /* Dish card : photo plus petite + prix autorisé à passer à la ligne */
+  .dish-card{padding:12px 12px;gap:10px}
+  .dish-photo-wrap{width:68px;height:68px;flex-shrink:0}
+  .dish-name-row{flex-wrap:wrap;gap:4px}
+  .dish-name{font-size:.95em}
+  .dish-right{flex-direction:row;flex-wrap:wrap;justify-content:flex-start;gap:4px 8px;align-items:center}
+  .dish-price{font-size:.95em}
+  .dish-desc{font-size:.78em;margin-bottom:4px}
+  .badge{font-size:.65em}
+  /* Formula card */
+  .formula-card{margin:6px 10px;padding:12px 14px}
+  .formula-top{flex-wrap:wrap;gap:4px}
+  .formula-name{font-size:.95em}
+  .formula-price{font-size:.95em}
+  .fc{padding:14px 14px;margin:8px 0}
+  .fh{flex-wrap:wrap;gap:4px}
+  /* Daily card */
+  .daily-card{margin:8px 10px;padding:12px 14px}
+  .daily-top{flex-wrap:wrap;gap:4px}
+  .daily-name{font-size:.97em}
+  .daily-price{font-size:.97em}
+  /* Child card */
+  .child-card{margin:4px 10px;padding:10px 14px}
+  .child-top{flex-wrap:wrap;gap:4px}
+  /* Text block */
+  .text-block{padding:8px 12px 4px}
+  .text-block p{font-size:.88em}
+  /* Modal */
+  #modal-name{font-size:1.15em}
+}
+
+/* Très petits téléphones ≤ 360px */
+@media(max-width:360px){
+  header{padding:18px 10px 14px}
+  h1{letter-spacing:1px}
+  .dish-card{padding:10px 10px;gap:8px}
+  .dish-photo-wrap{width:56px;height:56px}
+  .dish-name{font-size:.88em}
+  .dish-price{font-size:.88em}
+  .tab-btn{padding:8px 10px;font-size:.76em}
+  .formula-card{margin:4px 8px;padding:10px 12px}
+  .child-card{margin:4px 8px;padding:8px 12px}
+  .daily-card{margin:6px 8px;padding:10px 12px}
+  .sub-title-1{font-size:.88em;padding:6px 10px}
+  .sec-title{font-size:1.05em}
+  .text-block p{font-size:.84em}
+}
+
+/* Tablette ≥ 600px : un peu plus de confort */
+@media(min-width:600px){
+  .dish-card{padding:16px 20px;gap:16px}
+  .dish-photo-wrap{width:92px;height:92px}
+  .dish-name{font-size:1.05em}
+  .formula-card{margin:8px 20px}
+  .daily-card{margin:10px 20px}
+  .child-card{margin:6px 20px}
+  header{padding:44px 24px 34px}
+}
+/* ── THEME OVERRIDES (always last so they win) ── */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@300;400&display=swap');
+:root{--bg:#1C0610;--bg2:#280C1A;--text:#E0CCA0;--t2:#906040;--hd:#F0E0B0;--ac:#C89020;--br:#3A1428;--ft:#604030;--fd:'Libre Baskerville',serif;--fb:'Libre Franklin',sans-serif}
+body{font-weight:300}
+h1{font-size:2.7em;letter-spacing:3px}
+.st{font-size:1.3em;letter-spacing:4px;background:#1C0610}
+.hd::before,.hd::after{opacity:.5}
 </style>
 </head>
 <body>
@@ -192,11 +301,12 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
   <span class="orn">✦ ✦ ✦</span>
   <h1>Le bistrot de Diane</h1>
   <p class="tagline" id="tagline">Menu du moment</p>
+  
   <div id="schedule-badge"></div>
 </header>
 
 <div id="filter-bar"></div>
-<nav id="tab-nav"></nav>
+<div id="tab-nav-wrap"><nav id="tab-nav"></nav></div>
 
 <main id="menu-content"></main>
 
@@ -222,6 +332,7 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 
 <footer>
   <p id="footer-date"></p>
+  
   <p id="footer-copy" class="copy"></p>
 </footer>
 
@@ -263,19 +374,34 @@ function getChildren(pid) { return MENU.filter(c => c.parent_id === pid); }
 // ── SCHEDULE ────────────────────────────────────────────────────────
 function getService() {
   const d = new Date(), t = d.getHours() * 60 + d.getMinutes();
-  if (t >= 690 && t < 900) return 'midi';
-  if (t >= 1080 && t < 1380) return 'soir';
+  const wd = d.getDay(); // 0=Dim,1=Lun…6=Sam (JS)
+  const iso = wd === 0 ? 6 : wd - 1; // 0=Lun…6=Dim (ISO)
+  const mDays = [];
+  const sDays = [];
+  const okMidi = (!mDays.length || mDays.includes(iso));
+  const okSoir = (!sDays.length || sDays.includes(iso));
+  if (okMidi && t >= 690 && t < 900) return 'midi';
+  if (okSoir && t >= 1080 && t < 1380) return 'soir';
   return 'all';
 }
 
 // ── TRANSLATION ─────────────────────────────────────────────────────
+/* Nettoie les artefacts MyMemory : "€ 17 Voorgerecht..." → "Voorgerecht..." */
+function cleanTr(t) {
+  if (!t) return t;
+  t = t.replace(/^[€$£¥]\s*\d[\d.,]*\s+/, '').trim(); /* préfixe prix parasite */
+  t = t.replace(/:+\s*$/, '').trim();                      /* deux-points final    */
+  return t;
+}
 function tr(key) {
   if (lang === 'fr') return key;
   return (G[lang] && G[lang][key]) || key;
 }
 function trItem(item, field) {
   if (lang === 'fr') return item[field] || '';
-  return (item.translations && item.translations[lang] && item.translations[lang][field]) || item[field] || '';
+  const raw = (item.translations && item.translations[lang] && item.translations[lang][field]) || '';
+  const cleaned = raw ? cleanTr(raw) : '';
+  return cleaned || item[field] || '';
 }
 function trFormula(type) {
   if (lang === 'fr') return FORMULA_FR[type] || '';
@@ -484,11 +610,20 @@ function renderCatItems(cat, svc) {
 
   // ── TABLE ALIGNÉE pour les articles avec variantes ────────────
   if (withVar.length > 0) {
-    // Collecter tous les labels uniques dans l'ordre d'apparition
+    /* Merge topologique : respecte l'ordre relatif défini dans chaque item.
+       Ex: item1=[12cl,50cl], item2=[25cl,50cl] → [12cl,25cl,50cl]
+           item1=[150ml,75cl], item2=[75cl,1L]  → [150ml,75cl,1L]  */
     const labels = [];
     withVar.forEach(item => {
-      (item.variants||[]).forEach(v => {
-        if (!labels.includes(v.label)) labels.push(v.label);
+      const itemLabels = (item.variants||[]).map(v => v.label);
+      itemLabels.forEach((label, i) => {
+        if (labels.includes(label)) return;
+        const nextKnown = itemLabels.slice(i + 1).find(l => labels.includes(l));
+        if (nextKnown) {
+          labels.splice(labels.indexOf(nextKnown), 0, label);
+        } else {
+          labels.push(label);
+        }
       });
     });
 
@@ -574,7 +709,7 @@ function renderDish(item) {
            : ''}
         ${arrow}
       </div>
-      ${desc?`<div class="dish-desc">${escHtml(desc)}</div>`:''}
+      ${desc?`<div class="dish-desc">${escHtml(desc).replace(/\n/g,'<br>')}</div>`:''}
       ${badges?`<div class="badge-row">${badges}</div>`:''}
     </div>
     ${(item.variants&&item.variants.length)?`<div class="dish-right variants-table">${item.variants.map(v=>`<div class="variant-row"><span class="var-label">${escHtml(v.label)}</span><span class="var-price">${parseFloat(v.price).toFixed(2).replace('.',',')} €</span></div>`).join('')}</div>`:''}</div>`;
@@ -606,7 +741,7 @@ function renderChild(item) {
       <span class="child-name">${escHtml(name)}</span>
       <span class="child-price">${item.price.toFixed(2).replace('.',',')} €</span>
     </div>
-    ${desc ? `<div class="child-desc">${escHtml(desc)}</div>` : ''}
+    ${desc ? `<div class="child-desc">${escHtml(desc).replace(/\n/g,'<br>')}</div>` : ''}
   </div>`;
 }
 
@@ -621,6 +756,7 @@ function renderTextPara(item) {
       else if (sp.b)    t = `<strong>${t}</strong>`;
       else if (sp.i)    t = `<em>${t}</em>`;
       if (sp.u) t = `<u>${t}</u>`;
+      if (sp.c) t = `<span style="color:${sp.c}">${t}</span>`;
       content += t;
     }
   } else {
@@ -649,13 +785,14 @@ function renderDaily(item) {
       <span class="daily-name">${escHtml(name)}</span>
       <span class="daily-price">${item.price.toFixed(2).replace('.',',')} €</span>
     </div>
-    ${desc ? `<div class="daily-desc">${escHtml(desc)}</div>` : ''}
+    ${desc ? `<div class="daily-desc">${escHtml(desc).replace(/\n/g,'<br>')}</div>` : ''}
   </div>`;
 }
 
 function renderFormula(item) {
   const name = trItem(item,'name');
   const desc = trItem(item,'comment');
+  const typeStr = fmtFormulaTypes(item);
   const secs = item.formula_sections || {};
   const secLabels = {'E':'Entrées','P':'Plats','D':'Desserts'};
   let sectionsHtml = '';
@@ -673,13 +810,16 @@ function renderFormula(item) {
     sectionsHtml += `</div>`;
   });
   const priceHtml = item.price > 0
-    ? `<span class="formula-price">${item.price.toFixed(2).replace('.',',')} €</span>` : '';
-  return `<div class="formula-card" data-id="${item.id}" data-allergens="" data-diet="">
-    <div class="formula-top">
-      <span class="formula-name">${escHtml(name)}</span>
+    ? `<span class="fp">${item.price.toFixed(2).replace('.',',')} €</span>` : '';
+  /* Afficher le nom en titre, typeStr en sous-titre si différents, sinon description */
+  const showBoth = name && typeStr && name !== typeStr;
+  const subLine = showBoth ? typeStr : (desc || '');
+  return `<div class="fc" data-id="${item.id}" data-allergens="" data-diet="">
+    <div class="fh">
+      <span class="fn">${escHtml(showBoth ? name : (typeStr || name))}</span>
       ${priceHtml}
     </div>
-    ${desc?`<div class="formula-desc">${escHtml(desc)}</div>`:''}
+    ${subLine ? `<div class="fd">${escHtml(subLine).replace(/\n/g,'<br>')}</div>` : ''}
     ${sectionsHtml ? `<div class="formula-sections">${sectionsHtml}</div>` : ''}
   </div>`;
 }
@@ -697,7 +837,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 3 juin 2026 à 17h31';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 8 juin 2026 à 19h19';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
@@ -723,18 +863,67 @@ function setLang(l) {
   document.querySelectorAll('[id^=empty-]').forEach(em=>{
     em.textContent = tr('Aucun plat disponible avec ces filtres.');
   });
-  document.querySelectorAll('.dish-card,.formula-card').forEach(card=>{
+  /* ── Cartes plats normaux ── */
+  document.querySelectorAll('.dish-card').forEach(card=>{
     const id = card.dataset.id;
     const item = findItem(id);
     if (!item) return;
-    const nameEl = card.querySelector('.dish-name,.formula-name');
-    const descEl = card.querySelector('.dish-desc,.formula-desc');
+    const nameEl = card.querySelector('.dish-name');
+    const descEl = card.querySelector('.dish-desc');
     if (nameEl) nameEl.textContent = trItem(item,'name');
     if (descEl) descEl.textContent = trItem(item,'comment');
     card.querySelectorAll('[data-code]').forEach(badge=>{
       const [kind, code] = badge.dataset.code.split(':');
       badge.textContent = trBadge(kind, code);
     });
+  });
+  /* ── Cartes formule (.fc) ── */
+  document.querySelectorAll('.fc[data-id]').forEach(card=>{
+    const id = card.dataset.id;
+    const item = findItem(id);
+    if (!item) return;
+    const nameEl = card.querySelector('.fn');
+    const descEl = card.querySelector('.fd');
+    if (nameEl) nameEl.textContent = trItem(item,'name');
+    if (descEl) {
+      const typeStr = fmtFormulaTypes(item);
+      const name    = trItem(item,'name');
+      const subLine = (typeStr && typeStr !== name) ? typeStr : (trItem(item,'comment') || '');
+      descEl.textContent = subLine;
+    }
+  });
+  /* ── Cartes menu enfants (.child-card) ── */
+  document.querySelectorAll('.child-card[data-id]').forEach(card=>{
+    const id = card.dataset.id;
+    const item = findItem(id);
+    if (!item) return;
+    const nameEl = card.querySelector('.child-name');
+    const descEl = card.querySelector('.child-desc');
+    if (nameEl) nameEl.textContent = trItem(item,'name');
+    if (descEl) descEl.textContent = trItem(item,'comment');
+  });
+  /* ── Cartes suggestion du jour (.daily-card) ── */
+  document.querySelectorAll('.daily-card[data-id]').forEach(card=>{
+    const id = card.dataset.id;
+    const item = findItem(id);
+    if (!item) return;
+    const nameEl = card.querySelector('.daily-name');
+    const descEl = card.querySelector('.daily-desc');
+    if (nameEl) nameEl.textContent = trItem(item,'name');
+    if (descEl) descEl.textContent = trItem(item,'comment');
+  });
+  /* ── Lignes variantes (.vt-row) — apéritifs / boissons ── */
+  document.querySelectorAll('.vt-row[data-id]').forEach(row=>{
+    const id = row.dataset.id;
+    const item = findItem(id);
+    if (!item) return;
+    const nameEl = row.querySelector('.vt-hname-txt');
+    if (nameEl) {
+      /* Conserver la flèche › si présente */
+      const arrow = nameEl.querySelector('.dish-arrow');
+      nameEl.textContent = trItem(item,'name');
+      if (arrow) nameEl.appendChild(arrow);
+    }
   });
 }
 
