@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Le bistrot de Diane — Tableau de bord</title>
+<title>L'Instant — Tableau de bord</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--navy:#1B2B45;--gold:#C9A96E;--gold2:#9B7A2E;--bg:#FAF8F3;--card:#fff;
@@ -17,8 +17,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);min-height:100
 #pin-box p{color:var(--t2);font-size:.88em;margin-bottom:24px}
 #pin-input{width:100%;padding:14px;font-size:1.2em;text-align:center;letter-spacing:8px;border:2px solid var(--br);border-radius:8px;font-family:monospace;outline:none;transition:border .2s}
 #pin-input:focus{border-color:var(--ac)}
-#pin-btn{margin-top:16px;width:100%;padding:14px;background:#1C3D5A;color:#FFFFFF;border:none;border-radius:8px;font-size:1.05em;font-weight:700;letter-spacing:.5px;cursor:pointer;transition:background .2s}
-#pin-btn:hover{background:#0F2A40}
+#pin-btn{margin-top:16px;width:100%;padding:14px;background:var(--hd);color:#fff;border:none;border-radius:8px;font-size:1em;font-weight:600;cursor:pointer;transition:background .2s}
+#pin-btn:hover{background:#243658}
 #pin-err{color:var(--red);font-size:.85em;margin-top:10px;min-height:20px}
 #dashboard{display:none;width:100%;max-width:700px;padding:24px 20px 60px}
 .db-header{background:var(--hd);color:#fff;padding:24px 28px;border-radius:12px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center}
@@ -46,7 +46,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);min-height:100
 <div id="pin-screen">
   <div id="pin-box">
     <div style="font-size:2em;margin-bottom:12px">🔐</div>
-    <h1>Le bistrot de Diane</h1>
+    <h1>L'Instant</h1>
     <p>Tableau de bord restaurateur<br>Entrez votre code PIN pour accéder.</p>
     <input id="pin-input" type="password" inputmode="numeric" maxlength="8"
            placeholder="••••" autocomplete="off"
@@ -60,7 +60,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);min-height:100
   <div class="db-header">
     <div>
       <h1>📊 Tableau de bord</h1>
-      <div class="db-date">Le bistrot de Diane · Mis à jour le 8 juin 2026 à 19h41</div>
+      <div class="db-date">L'Instant · Mis à jour le 12 juin 2026 à 19h19</div>
     </div>
     <button class="logout-btn" onclick="logout()">Déconnexion</button>
   </div>
