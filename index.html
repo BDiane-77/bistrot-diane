@@ -298,23 +298,23 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 }
 /* ── THEME OVERRIDES (always last so they win) ── */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
-:root{--bg:#1A0406;--bg2:#220608;--text:#D8C8C0;--t2:#8A6A6A;--hd:#F0D8D8;--ac:#CC2233;--br:#2D0A10;--ft:#704050;--bord:#3D1418;--fd:'EB Garamond',serif;--fb:'Lato',sans-serif}
-body{background:#1A0406;font-weight:300;letter-spacing:.2px}
-header{border-top:4px solid #CC2233;background:linear-gradient(180deg,#120204 0%,#1A0406 100%);padding:70px 0 54px}
-h1{font-size:2.8em;font-weight:500;letter-spacing:4px;line-height:1.2;color:#F0D8D8}
-.tg{font-style:italic;font-size:1.05em;letter-spacing:.5px;color:#A07878;opacity:.9}
-.orn{letter-spacing:10px;color:#CC2233;opacity:.7}
-.st{font-size:1.1em;letter-spacing:6px;font-weight:400;background:#1A0406;color:#8A6A6A}
-.in{font-weight:300;color:#C8B8B0}
-.fn{font-weight:600;color:#F0D8D8}
-.ip{color:#CC2233;font-weight:600}
-.fp{color:#CC2233;font-weight:700}
-.hd::before,.hd::after{background:#CC2233;opacity:.5}
-.hd span{color:#CC2233}
-.tab-btn.active{color:#CC2233;border-bottom-color:#CC2233}
-.fc{border-left:3px solid #CC2233;background:#220608;border-radius:4px}
-.dish-card{border-bottom-color:#2D0A10}
-footer{border-top-color:#2D0A10;opacity:.7}
+:root{--bg:#0D1526;--bg2:#111E32;--text:#D0C8B8;--t2:#8A7E6A;--hd:#F2D882;--ac:#D4A030;--br:#1E2D40;--ft:#506070;--bord:#263850;--fd:'EB Garamond',serif;--fb:'Lato',sans-serif}
+body{background:#0D1526;font-weight:300;letter-spacing:.2px}
+header{border-top:4px solid #D4A030;background:linear-gradient(180deg,#0A1020 0%,#0D1526 100%);padding:70px 0 54px}
+h1{font-size:2.8em;font-weight:500;letter-spacing:4px;line-height:1.2;color:#F2D882}
+.tg{font-style:italic;font-size:1.05em;letter-spacing:.5px;color:#A89060;opacity:.9}
+.orn{letter-spacing:10px;color:#D4A030;opacity:.7}
+.st{font-size:1.1em;letter-spacing:6px;font-weight:400;background:#0D1526;color:#8A7E6A}
+.in{font-weight:300;color:#C0B8A0}
+.fn{font-weight:600;color:#F2D882}
+.ip{color:#D4A030;font-weight:600}
+.fp{color:#D4A030;font-weight:700}
+.hd::before,.hd::after{background:#D4A030;opacity:.5}
+.hd span{color:#D4A030}
+.tab-btn.active{color:#D4A030;border-bottom-color:#D4A030}
+.fc{border-left:3px solid #D4A030;background:#111E32;border-radius:4px}
+.dish-card{border-bottom-color:#1E2D40}
+footer{border-top-color:#1E2D40;opacity:.7}
 </style>
 </head>
 <body>
@@ -888,7 +888,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 24 juin 2026 à 23h15';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 25 juin 2026 à 03h08';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
