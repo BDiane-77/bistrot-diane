@@ -27,12 +27,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:30
 .lang-btn:hover{color:#fff}
 
 /* ── HEADER ── */
-header{text-align:center;padding:36px 20px 28px;background:var(--bg)}
+header{text-align:center;padding:36px 20px 28px;background:var(--bg);position:relative}
 .orn{color:var(--ac);letter-spacing:8px;font-size:.85em;display:block;margin-bottom:12px}
 h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:var(--hd);letter-spacing:3px;text-transform:uppercase;line-height:1.2}
 .tagline{font-family:var(--fd);font-style:italic;color:var(--ac);font-size:.9em;margin-top:8px;letter-spacing:1px}
-.header-logo{width:96px;height:96px;border-radius:50%;overflow:hidden;margin:0 auto 16px;position:relative;box-shadow:0 6px 22px rgba(0,0,0,.25)}
-.header-logo img{width:100%;height:100%;object-fit:cover;display:block}
+.header-logo{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 16px;position:relative;box-shadow:0 6px 22px rgba(0,0,0,.25);background:var(--bg)}
+.header-logo img{width:100%;height:100%;object-fit:contain;display:block}
 .header-logo::after{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.18) 100%);pointer-events:none}
 .schedule-badge{display:inline-block;margin-top:12px;padding:4px 14px;border-radius:20px;font-size:.72em;font-weight:500;letter-spacing:1px;text-transform:uppercase}
 .schedule-badge.midi{background:#FEF3E2;color:#B45309;border:1px solid #F59E0B}
@@ -98,21 +98,21 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 .vt-row .vt-hcol{width:72px;flex-shrink:0;text-align:right;font-family:var(--fd);font-weight:700;color:var(--hd);font-size:.9em;padding-right:2px;white-space:nowrap}
 .vt-empty{color:var(--t2);opacity:.35;font-weight:400;text-align:center}
 .vt-row .vt-empty{text-align:center}
-/* Responsive vins ≤ 540px : colonnes réduites + noms non tronqués */
-@media(max-width:540px){
-  .vt-hcol{width:46px;font-size:.68em;padding-right:1px}
-  .vt-row .vt-hcol{width:46px;font-size:.78em;padding-right:1px}
-  .vt-hname{min-width:0;flex:1;overflow:visible;align-items:center}
-  .vt-hname-txt{white-space:normal;overflow:visible;text-overflow:clip;font-size:.88em;line-height:1.25;word-break:break-word;flex-shrink:1}
-  .vt-hname-dt{flex:1 0 20px;min-width:20px;margin-bottom:0;align-self:center}
-  .vt-row{padding:8px 10px;align-items:center}
-  .vt-header{padding:8px 10px 6px}
-}
-/* Très petits écrans ≤ 360px */
-@media(max-width:360px){
-  .vt-hcol{width:38px;font-size:.62em}
-  .vt-row .vt-hcol{width:38px;font-size:.72em}
-  .vt-hname-txt{font-size:.82em}
+/* Responsive vins/multi-format ≤ 600px : les colonnes de prix ne tiennent pas sur
+   mobile → on empile. Nom (+ bouton +) sur une ligne pleine largeur, puis les prix
+   en pastilles libellées qui s'enroulent dessous. Plus de chevauchement ni de noms
+   écrasés sur 4 lignes. */
+@media(max-width:600px){
+  .vt-header{display:none}
+  .vt-row{flex-wrap:wrap;align-items:center;padding:11px 12px;row-gap:6px}
+  .vt-row .vt-hname{flex:1 1 100%;min-width:0;overflow:visible;align-items:center}
+  .vt-hname-txt{white-space:normal;word-break:break-word;text-overflow:clip;overflow:visible;font-size:.95em;line-height:1.25;flex:0 1 auto}
+  .vt-hname-dt{flex:1 1 12px;min-width:12px;margin-bottom:0;align-self:center}
+  .vt-row .vt-hcol{width:auto;flex:0 0 auto;text-align:left;white-space:nowrap;
+    padding:3px 10px;margin:0 6px 0 0;font-size:.82em;line-height:1.25;
+    background:var(--bg2);border:1px solid var(--ac);border-radius:999px}
+  .vt-row .vt-hcol::before{content:attr(data-l) "\A0";color:var(--ac);font-style:italic;font-weight:700;font-size:.85em;opacity:.9}
+  .vt-row .vt-hcol.vt-empty{display:none}
 }
 .dish-name-row{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
 .dish-weight{font-size:.78em;color:var(--t2);font-weight:500;white-space:nowrap}
@@ -231,7 +231,7 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
   /* Header */
   header{padding:24px 14px 18px}
   h1{letter-spacing:2px;font-size:clamp(1.3em,7vw,2em)}
-  .header-logo{width:80px;height:80px}
+  .header-logo{width:100px;height:100px}
   /* Tabs */
   .tab-btn{padding:10px 13px;font-size:.82em;letter-spacing:0}
   /* Sections */
@@ -242,6 +242,9 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
   .dish-photo-wrap{width:68px;height:68px;flex-shrink:0}
   .dish-name-row{flex-wrap:wrap;gap:4px;align-items:center}
   .dt{align-self:center;margin-bottom:0;flex:1 0 20px;min-width:20px}
+  /* Si le bouton + passe à la ligne (nom long), on le garde aligné à droite
+     comme toutes les autres lignes, jamais seul à gauche. */
+  .dish-name-row .dc-add{margin-left:auto}
   .dish-name{font-size:.95em}
   .dish-right{flex-direction:row;flex-wrap:wrap;justify-content:flex-start;gap:4px 8px;align-items:center}
   .dish-price{font-size:.95em}
@@ -298,23 +301,23 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 }
 /* ── THEME OVERRIDES (always last so they win) ── */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
-:root{--bg:#040E08;--bg2:#081408;--text:#B8CEB8;--t2:#608060;--hd:#D0F0DC;--ac:#2A9D5C;--br:#0A1E10;--ft:#305040;--bord:#14301C;--fd:'EB Garamond',serif;--fb:'Lato',sans-serif}
-body{background:#040E08;font-weight:300;letter-spacing:.2px}
-header{border-top:4px solid #2A9D5C;background:linear-gradient(180deg,#020A04 0%,#040E08 100%);padding:70px 0 54px}
-h1{font-size:2.8em;font-weight:500;letter-spacing:4px;line-height:1.2;color:#D0F0DC}
-.tg{font-style:italic;font-size:1.05em;letter-spacing:.5px;color:#6A9A70;opacity:.9}
-.orn{letter-spacing:10px;color:#2A9D5C;opacity:.7}
-.st{font-size:1.1em;letter-spacing:6px;font-weight:400;background:#040E08;color:#608060}
-.in{font-weight:300;color:#A8C0A8}
-.fn{font-weight:600;color:#D0F0DC}
-.ip{color:#2A9D5C;font-weight:600}
-.fp{color:#2A9D5C;font-weight:700}
-.hd::before,.hd::after{background:#2A9D5C;opacity:.5}
-.hd span{color:#2A9D5C}
-.tab-btn.active{color:#2A9D5C;border-bottom-color:#2A9D5C}
-.fc{border-left:3px solid #2A9D5C;background:#081408;border-radius:4px}
-.dish-card{border-bottom-color:#0A1E10}
-footer{border-top-color:#0A1E10;opacity:.7}
+:root{--bg:#0D1526;--bg2:#111E32;--text:#D0C8B8;--t2:#8A7E6A;--hd:#F2D882;--ac:#D4A030;--br:#1E2D40;--ft:#506070;--bord:#263850;--fd:'EB Garamond',serif;--fb:'Lato',sans-serif}
+body{background:#0D1526;font-weight:300;letter-spacing:.2px}
+header{border-top:4px solid #D4A030;background:linear-gradient(180deg,#0A1020 0%,#0D1526 100%);padding:70px 0 54px}
+h1{font-size:2.8em;font-weight:500;letter-spacing:4px;line-height:1.2;color:#F2D882}
+.tg{font-style:italic;font-size:1.05em;letter-spacing:.5px;color:#A89060;opacity:.9}
+.orn{letter-spacing:10px;color:#D4A030;opacity:.7}
+.st{font-size:1.1em;letter-spacing:6px;font-weight:400;background:#0D1526;color:#8A7E6A}
+.in{font-weight:300;color:#C0B8A0}
+.fn{font-weight:600;color:#F2D882}
+.ip{color:#D4A030;font-weight:600}
+.fp{color:#D4A030;font-weight:700}
+.hd::before,.hd::after{background:#D4A030;opacity:.5}
+.hd span{color:#D4A030}
+.tab-btn.active{color:#D4A030;border-bottom-color:#D4A030}
+.fc{border-left:3px solid #D4A030;background:#111E32;border-radius:4px}
+.dish-card{border-bottom-color:#1E2D40}
+footer{border-top-color:#1E2D40;opacity:.7}
 </style>
 </head>
 <body>
@@ -604,8 +607,8 @@ function renderVariantTable(items) {
     labels.forEach(l => {
       const v = (item.variants||[]).find(vv => vv.label === l);
       html += v
-        ? `<div class="vt-hcol">${parseFloat(v.price).toFixed(2).replace('.',',')}&nbsp;€</div>`
-        : `<div class="vt-hcol vt-empty">—</div>`;
+        ? `<div class="vt-hcol" data-l="${escHtml(l)}">${parseFloat(v.price).toFixed(2).replace('.',',')}&nbsp;€</div>`
+        : `<div class="vt-hcol vt-empty" data-l="${escHtml(l)}">—</div>`;
     });
     html += '</div>';
   });
@@ -681,8 +684,8 @@ function renderCatItems(cat, svc) {
       labels.forEach(l => {
         const v = (item.variants||[]).find(vv => vv.label === l);
         html += v
-          ? `<div class="vt-hcol">${parseFloat(v.price).toFixed(2).replace('.',',')}&nbsp;€</div>`
-          : `<div class="vt-hcol vt-empty">—</div>`;
+          ? `<div class="vt-hcol" data-l="${escHtml(l)}">${parseFloat(v.price).toFixed(2).replace('.',',')}&nbsp;€</div>`
+          : `<div class="vt-hcol vt-empty" data-l="${escHtml(l)}">—</div>`;
       });
       html += '</div>';
     });
@@ -775,7 +778,40 @@ function renderTextPara(item) {
   const fmt = item.text_format || {};
   const spans = item.text_spans;
   let content = '';
-  if (spans && spans.length > 0) {
+  const trTxt = (lang !== 'fr' && item.translations && item.translations[lang] && item.translations[lang].text) ? item.translations[lang].text : '';
+  if (trTxt) {
+    /* Appliquer le style ligne par ligne : chaque ligne traduite hérite du style
+       des spans de la ligne correspondante dans l'original */
+    const trLines = trTxt.split('\n');
+    if (spans && spans.length > 0) {
+      /* Regrouper les spans par ligne */
+      const lineGroups = [[]];
+      for (const sp of spans) {
+        const parts = sp.t.split('\n');
+        parts.forEach((part, idx) => {
+          if (idx > 0) lineGroups.push([]);
+          lineGroups[lineGroups.length - 1].push({t: part, b: sp.b, i: sp.i, u: sp.u, c: sp.c});
+        });
+      }
+      content = trLines.map((line, i) => {
+        const grp = lineGroups[i] || lineGroups[lineGroups.length - 1];
+        const bold   = grp.some(sp => sp.b);
+        const italic = grp.some(sp => sp.i);
+        const under  = grp.some(sp => sp.u);
+        const colors = [...new Set(grp.filter(sp => sp.c).map(sp => sp.c))];
+        const col    = colors.length === 1 ? colors[0] : '';
+        let out = escHtml(line);
+        if (bold && italic) out = `<strong><em>${out}</em></strong>`;
+        else if (bold)      out = `<strong>${out}</strong>`;
+        else if (italic)    out = `<em>${out}</em>`;
+        if (under) out = `<u>${out}</u>`;
+        if (col)   out = `<span style="color:${col}">${out}</span>`;
+        return out;
+      }).join('<br>');
+    } else {
+      content = trLines.map(l => escHtml(l)).join('<br>');
+    }
+  } else if (spans && spans.length > 0) {
     for (const sp of spans) {
       let t = escHtml(sp.t).replace(/\n/g, '<br>');
       if (sp.b && sp.i) t = `<strong><em>${t}</em></strong>`;
@@ -794,7 +830,7 @@ function renderTextPara(item) {
   const sizeMap = {title:'1.35em', large:'1.1em', normal:'0.95em', small:'0.82em'};
   style += `font-size:${sizeMap[fmt.size] || '0.95em'};`;
   const tag = (fmt.size === 'title') ? 'h3' : 'p';
-  return `<div class="text-block" style="${style}"><${tag}>${content}</${tag}></div>`;
+  return `<div class="text-block" data-id="${item.id}" style="${style}"><${tag}>${content}</${tag}></div>`;
 }
 
 function renderDaily(item) {
@@ -888,7 +924,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 25 juin 2026 à 03h46';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 28 juin 2026 à 10h18';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
@@ -914,6 +950,8 @@ function setLang(l) {
   document.querySelectorAll('[id^=empty-]').forEach(em=>{
     em.textContent = tr('Aucun plat disponible avec ces filtres.');
   });
+  /* ── Panier de commande ── */
+  if(typeof window.dcUpdateLang === 'function') window.dcUpdateLang();
   /* ── Cartes plats normaux ── */
   document.querySelectorAll('.dish-card').forEach(card=>{
     const id = card.dataset.id;
@@ -975,6 +1013,15 @@ function setLang(l) {
       nameEl.textContent = trItem(item,'name');
       if (arrow) nameEl.appendChild(arrow);
     }
+  });
+  /* ── Blocs texte libre (.text-block) ── */
+  Array.from(document.querySelectorAll('.text-block[data-id]')).forEach(block=>{
+    const item = findItem(block.dataset.id);
+    if (!item) return;
+    const tmp = document.createElement('div');
+    tmp.innerHTML = renderTextPara(item);
+    const nb = tmp.firstElementChild;
+    if (nb) block.replaceWith(nb);
   });
 }
 
