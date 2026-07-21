@@ -6,6 +6,9 @@
 <meta name="theme-color" content="#1B2B45">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
 <meta name="referrer" content="no-referrer">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>le bistrot de diane — Menu</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -54,8 +57,6 @@ h1{font-family:var(--fd);font-size:clamp(1.6em,6vw,2.6em);font-weight:700;color:
 #tab-nav::-webkit-scrollbar{display:none}
 .tab-btn{flex-shrink:0;padding:12px 20px;border:none;background:none;color:var(--t2);font-family:var(--fd);font-size:.88em;font-weight:600;letter-spacing:.5px;cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:all .2s;white-space:nowrap}
 .tab-btn.active{color:var(--hd);border-bottom-color:var(--ac)}
-/* Indicateur de scroll des onglets */
-#tab-nav-wrap::after{content:'';position:absolute;right:0;top:0;bottom:2px;width:32px;background:linear-gradient(to right,transparent,var(--bg));pointer-events:none;opacity:.9}
 
 /* ── SECTIONS ── */
 .cat-section{display:none;padding:0 0 32px}
@@ -305,23 +306,23 @@ footer .copy{margin-top:6px;opacity:.6;font-size:.9em;line-height:1.6}
 }
 /* ── THEME OVERRIDES (always last so they win) ── */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
-:root{--bg:#0D1526;--bg2:#111E32;--text:#D0C8B8;--t2:#8A7E6A;--hd:#F2D882;--ac:#D4A030;--br:#1E2D40;--ft:#506070;--bord:#263850;--fd:'EB Garamond',serif;--fb:'Lato',sans-serif}
-body{background:#0D1526;font-weight:300;letter-spacing:.2px}
-header{border-top:4px solid #D4A030;background:linear-gradient(180deg,#0A1020 0%,#0D1526 100%);padding:70px 0 54px}
+:root{--bg:#A5121F;--bg2:#8C0F1A;--text:#ECD6CC;--t2:#D89E92;--hd:#F2D882;--ac:#D4A030;--br:#6E1620;--ft:#B05A54;--bord:#7A2028;--fd:'EB Garamond',serif;--fb:'Lato',sans-serif}
+body{background:#A5121F;font-weight:300;letter-spacing:.2px}
+header{border-top:4px solid #D4A030;background:linear-gradient(180deg,#B8172A 0%,#A5121F 100%);padding:70px 0 54px}
 h1{font-size:2.8em;font-weight:500;letter-spacing:4px;line-height:1.2;color:#F2D882}
-.tg{font-style:italic;font-size:1.05em;letter-spacing:.5px;color:#A89060;opacity:.9}
-.orn{letter-spacing:10px;color:#D4A030;opacity:.7}
-.st{font-size:1.1em;letter-spacing:6px;font-weight:400;background:#0D1526;color:#8A7E6A}
-.in{font-weight:300;color:#C0B8A0}
+.tg{font-style:italic;font-size:1.05em;letter-spacing:.5px;color:#EEC58A;opacity:.9}
+.orn{letter-spacing:10px;color:#D4A030;opacity:.75}
+.st{font-size:1.1em;letter-spacing:6px;font-weight:400;background:#A5121F;color:#D89E92}
+.in{font-weight:300;color:#E8C8BC}
 .fn{font-weight:600;color:#F2D882}
-.ip{color:#D4A030;font-weight:600}
-.fp{color:#D4A030;font-weight:700}
-.hd::before,.hd::after{background:#D4A030;opacity:.5}
+.ip{color:#F2D882;font-weight:600}
+.fp{color:#F2D882;font-weight:700}
+.hd::before,.hd::after{background:#D4A030;opacity:.55}
 .hd span{color:#D4A030}
-.tab-btn.active{color:#D4A030;border-bottom-color:#D4A030}
-.fc{border-left:3px solid #D4A030;background:#111E32;border-radius:4px}
-.dish-card{border-bottom-color:#1E2D40}
-footer{border-top-color:#1E2D40;opacity:.7}
+.tab-btn.active{color:#F2D882;border-bottom-color:#D4A030}
+.fc{border-left:3px solid #D4A030;background:#8C0F1A;border-radius:4px}
+.dish-card{border-bottom-color:#6E1620}
+footer{border-top-color:#6E1620;opacity:.75}
 </style>
 </head>
 <body>
@@ -928,7 +929,7 @@ function updateFooter() {
   const yr = new Date().getFullYear();
   const fd = document.getElementById('footer-date');
   const fc = document.getElementById('footer-copy');
-  if (fd) fd.textContent = tr('Mis à jour le') + ' 6 juillet 2026 à 08h49';
+  if (fd) fd.textContent = tr('Mis à jour le') + ' 21 juillet 2026 à 15h47';
   if (fc) fc.innerHTML =
     '© N.Y ' + yr + ' — DematCard. ' + tr('Tous droits réservés.') +
     '<br>' + tr('Toute reproduction ou diffusion interdite sans autorisation écrite.');
